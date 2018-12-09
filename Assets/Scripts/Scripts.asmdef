@@ -1,0 +1,12 @@
+{
+    "name": "Scripts",
+    "references": [
+        "UDBase.Scripts",
+        "UDBase.Extensions",
+        "Unity-Weld"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
