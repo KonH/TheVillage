@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Holders;
 using Sources;
 using UDBase.Helpers;
 using UnityEngine;
@@ -8,19 +9,21 @@ using Zenject;
 
 namespace Spawners {
 	[RequireComponent(typeof(Area))]
+	[RequireComponent(typeof(FoodSourceHolder))]
 	public class FoodSourceSpawner : MonoBehaviour {
 		public FloatRange Interval;
 		public float MaxInstances;
-		
+
 		Area _area;
+		FoodSourceHolder _holder;
 		FoodSource.Factory _factory;
 
 		Coroutine _routine;
-		HashSet<FoodSource> _instances = new HashSet<FoodSource>();
-		
+
 		[Inject]
 		public void Init(FoodSource.Factory factory) {
 			_area = GetComponent<Area>();
+			_holder = GetComponent<FoodSourceHolder>();
 			_factory = factory;
 		}
 
@@ -33,7 +36,7 @@ namespace Spawners {
 		}
 
 		IEnumerator SpawnRoutine() {
-			while ( true ) {
+			while ( enabled ) {
 				var curInterval = Interval.Random();
 				yield return new WaitForSeconds(curInterval);
 				if ( CanSpawn() ) {
@@ -43,15 +46,13 @@ namespace Spawners {
 		}
 
 		bool CanSpawn() {
-			_instances.RemoveWhere(s => !s); // Check deleted instances
-			return _instances.Count < MaxInstances;
+			return _holder.Count < MaxInstances;
 		}
 
 		void Spawn() {
-			var instance = _factory.Create();
+			var instance = _factory.Create(_holder);
 			var position = _area.GetRandomPointOnPlane();
 			instance.transform.position = position;
-			_instances.Add(instance);
 		}
 	}
 }

@@ -1,12 +1,31 @@
+using System.Collections.Generic;
+using Actors;
+using Holders;
 using UnityEngine;
+using Zenject;
 
 namespace World {
 	[RequireComponent(typeof(Collider))]
-	public class Area : MonoBehaviour {		
+	public class Area : MonoBehaviour {
+		public AreaType Type;
+		
+		public HashSet<Actor> Visitors { get; set; } = new HashSet<Actor>();
+
+		AreaHolder _holder;
 		Collider _collider;
 		
-		void Start() {
+		[Inject]
+		public void Init(AreaHolder holder) {
+			_holder = holder;
 			_collider = GetComponent<Collider>();
+		}
+
+		void OnEnable() {
+			_holder.Register(this);
+		}
+
+		void OnDisable() {
+			_holder.Unregister(this);
 		}
 
 		public Vector3 GetRandomPointInside() {
