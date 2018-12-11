@@ -9,9 +9,9 @@ namespace Actors.States {
 		protected override float UpdatePriority() {
 			_foodArea = Owner.Areas.GetNearestAreaWithType(AreaType.Food, Owner.transform.position);
 			if ( (_foodArea != null) && !Owner.IsInside(_foodArea) ) {
-				var hunger    = Model.Hunger;
+				var hunger    = Model.CompensatedHunger;
 				var settings  = Settings.GoToFood;
-				var minHunger = settings.MinHunger;
+				var minHunger = settings.MinCompensatedHunger;
 				return settings.Clamp((hunger - minHunger) / (1 - minHunger));
 			}
 			return 0.0f;

@@ -10,6 +10,7 @@ namespace EditorScripts {
 			if ( actor.States == null ) {
 				return;
 			}
+			EditorGUILayout.Slider("Compensated Hunger", actor.Model.CompensatedHunger, 0.0f, 1.0f);
 			foreach ( var state in actor.States ) {
 				var stateName = state.Name;
 				if ( state == actor.CurrentState ) {

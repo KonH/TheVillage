@@ -1,5 +1,5 @@
-using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -28,6 +28,16 @@ namespace Models {
 			}
 		}
 
+		public float CompensatedHunger {
+			get {
+				var restore = Inventory.Sum(item => {
+					var food = item as FoodItemModel;
+					return (food != null) ? food.Restore : 0.0f;
+				});
+				return Hunger - restore;
+			}
+		}
+		
 		public ObservableList<ItemModel> Inventory { get; } = new ObservableList<ItemModel>();
 
 		string _state;

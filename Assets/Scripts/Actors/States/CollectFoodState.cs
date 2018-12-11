@@ -16,9 +16,9 @@ namespace Actors.States {
 				if ( holder ) {
 					_source = holder.GetNearest(Owner.transform.position);
 					if ( _source ) {
-						var hunger    = Model.Hunger;
+						var hunger    = Model.CompensatedHunger;
 						var settings  = Settings.CollectFood;
-						var minHunger = settings.MinHunger;
+						var minHunger = settings.MinCompensatedHunger;
 						return settings.Clamp((hunger - minHunger) / (1 - minHunger));
 					}
 				}

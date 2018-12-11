@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Actors.States;
 using Holders;
@@ -34,6 +32,7 @@ namespace Actors {
 		void Start() {
 			Agent = GetComponent<NavMeshAgent>();
 			States = new List<ActorState> {
+				new GoToHomeState(this),
 				new IdleState(this),
 				new GoToFoodState(this),
 				new CollectFoodState(this),
@@ -52,7 +51,7 @@ namespace Actors {
 			var food = other.gameObject.GetComponent<FoodSource>();
 			if ( food ) {
 				Destroy(food.gameObject);
-				Model.Inventory.Add(new FoodItemModel());
+				Model.Inventory.Add(new FoodItemModel(0.25f));
 			}
 		}
 		
@@ -72,6 +71,8 @@ namespace Actors {
 		}
 
 		public bool IsInside(Area area) => area.Visitors.Contains(this);
+
+		public bool IsInside(AreaType type) => GetAreaInside(type) != null;
 
 		public Area GetAreaInside(AreaType type) {
 			foreach ( var area in Areas.Filter(type) ) {

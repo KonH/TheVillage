@@ -85,22 +85,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Settings:
+    GoToHome:
+      Min: 0.151
+      Max: 0.305
+      MaxCompensatedHunger: 0.035
     Idle:
-      Min: 0
-      Max: 0.488
-      MaxHunger: 0.394
+      Min: 0.1
+      Max: 0.288
+      MaxCompensatedHunger: 0.031
     GoToFood:
       Min: 0
-      Max: 0.537
-      MinHunger: 0.25
+      Max: 0.564
+      MinCompensatedHunger: 0.364
     CollectFood:
-      Min: 0
-      Max: 0.65
-      MinHunger: 0.141
+      Min: 0.148
+      Max: 0.882
+      MinCompensatedHunger: 0
     EatFood:
-      Min: 0
+      Min: 0.19
       Max: 1
-      MinHunger: 0.691
+      MinHunger: 0.041
 --- !u!114 &114271538174801966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Settings:
-    Increase: 0.05
+    Increase: 0.025
 --- !u!114 &114745019916037898
 MonoBehaviour:
   m_ObjectHideFlags: 1

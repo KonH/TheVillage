@@ -1,9 +1,13 @@
 namespace Models {
 	public class FoodItemModel : ItemModel {
-		public FoodItemModel():base("Food") { }
+		public float Restore { get; }
+
+		public FoodItemModel(float restore) : base("Food") {
+			Restore = restore;
+		}
 
 		public override void UseBy(ActorModel actor) {
-			actor.Hunger -= 1.0f;
+			actor.Hunger -= Restore;
 		}
 	}
 }
