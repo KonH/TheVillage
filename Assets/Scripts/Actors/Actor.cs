@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Actors.States;
 using Holders;
@@ -13,19 +15,19 @@ using Zenject;
 namespace Actors {
 	[RequireComponent(typeof(NavMeshAgent))]
 	public class Actor : MonoBehaviour, ILogContext {
+		public ActorModel Model { get; private set; }
 		public AreaHolder Areas { get; private set; }
 		public NavMeshAgent Agent { get; private set; }
 
 		ULogger _logger;
 
-		ActorModel _model;
 		ActorState _state;
 		List<ActorState> _states;
 
 		[Inject]
 		public void Init(ILog log, ActorRepository repo, AreaHolder areas) {
 			_logger = log.CreateLogger(this);
-			_model = repo.State;
+			Model = repo.State;
 			Areas = areas;
 		}
 
@@ -34,7 +36,8 @@ namespace Actors {
 			_states = new List<ActorState> {
 				new IdleState(this),
 				new GoToFoodState(this),
-				new CollectFoodState(this)
+				new CollectFoodState(this),
+				new EatFoodState(this, 1.5f)
 			};
 		}
 
@@ -49,7 +52,7 @@ namespace Actors {
 			var food = other.gameObject.GetComponent<FoodSource>();
 			if ( food ) {
 				Destroy(food.gameObject);
-				_model.Inventory.Add(new FoodItemModel());
+				Model.Inventory.Add(new FoodItemModel());
 			}
 		}
 		
@@ -69,6 +72,15 @@ namespace Actors {
 
 		public bool IsInside(Area area) => area.Visitors.Contains(this);
 
+		public void Schedule(float delay, Action callback) {
+			StartCoroutine(ScheduleRoutine(delay, callback));
+		}
+
+		IEnumerator ScheduleRoutine(float delay, Action callback) {
+			yield return new WaitForSeconds(delay);
+			callback();
+		}
+
 		public Area GetAreaInside(AreaType type) {
 			foreach ( var area in Areas.Filter(type) ) {
 				if ( area.Visitors.Contains(this) ) {
@@ -86,7 +98,7 @@ namespace Actors {
 			}
 			_state = betterState;
 			_state.OnEnter();
-			_model.State = _state.GetType().Name;
+			Model.State = _state.GetType().Name;
 		}
 
 		ActorState GetBetterState() {
