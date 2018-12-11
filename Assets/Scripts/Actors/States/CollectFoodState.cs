@@ -1,6 +1,5 @@
 using Holders;
 using Sources;
-using UnityEngine;
 using World;
 
 namespace Actors.States {
@@ -10,7 +9,7 @@ namespace Actors.States {
 		
 		public CollectFoodState(Actor owner) : base(owner) { }
 		
-		public override float UpdatePriority() {
+		protected override float UpdatePriority() {
 			_area = Owner.GetAreaInside(AreaType.Food);
 			if ( _area ) {
 				var holder = _area.GetComponent<FoodSourceHolder>();
@@ -18,8 +17,9 @@ namespace Actors.States {
 					_source = holder.GetNearest(Owner.transform.position);
 					if ( _source ) {
 						var hunger    = Model.Hunger;
-						var minHunger = Settings.CollectFood.MinHunger;
-						return Mathf.Clamp01((hunger - minHunger) / (1 - minHunger));
+						var settings  = Settings.CollectFood;
+						var minHunger = settings.MinHunger;
+						return settings.Clamp((hunger - minHunger) / (1 - minHunger));
 					}
 				}
 			}

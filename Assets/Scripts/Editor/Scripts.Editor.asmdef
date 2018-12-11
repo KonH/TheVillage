@@ -1,0 +1,13 @@
+{
+    "name": "Scripts.Editor",
+    "references": [
+        "Scripts",
+        "UDBase.Scripts"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

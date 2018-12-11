@@ -4,21 +4,22 @@ using UnityEngine;
 
 namespace Actors.States {
 	public class EatFoodState : ActorState {
-		readonly float EatTime;
+		readonly float _eatTime;
 
 		float _timer;
 		FoodItemModel _food;
 
 		public EatFoodState(Actor owner, float time) : base(owner) {
-			EatTime = time;
+			_eatTime = time;
 		}
 		
-		public override float UpdatePriority() {
+		protected override float UpdatePriority() {
 			_food = Owner.Model.Inventory.FirstOrDefault(item => item is FoodItemModel) as FoodItemModel;
 			 if ( _food != null ) {
 				 var hunger    = Model.Hunger;
-				 var minHunger = Settings.EatFood.MinHunger;
-				 return Mathf.Clamp01((hunger - minHunger) / (1 - minHunger));
+				 var settings  = Settings.EatFood;
+				 var minHunger = settings.MinHunger;
+				 return settings.Clamp((hunger - minHunger) / (1 - minHunger));
 			 }
 			return 0.0f;
 		}
@@ -28,14 +29,14 @@ namespace Actors.States {
 		}
 
 		public override bool Update() {
-			if ( _timer > EatTime ) {
+			if ( _timer > _eatTime ) {
 				_food.UseBy(Owner.Model);
 				Owner.Model.Inventory.Remove(_food);
 				_food = null;
 			} else {
 				_timer += Time.deltaTime;
 			}
-			return _food != null;
+			return (_food == null);
 		}
 	}
 }

@@ -86,11 +86,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Settings:
     Idle:
-      MaxHunger: 0.5
+      Min: 0
+      Max: 0.488
+      MaxHunger: 0.394
     GoToFood:
+      Min: 0
+      Max: 0.537
       MinHunger: 0.25
     CollectFood:
-      MinHunger: 0.1
+      Min: 0
+      Max: 0.65
+      MinHunger: 0.141
+    EatFood:
+      Min: 0
+      Max: 1
+      MinHunger: 0.691
 --- !u!114 &114271538174801966
 MonoBehaviour:
   m_ObjectHideFlags: 1

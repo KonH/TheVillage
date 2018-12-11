@@ -1,26 +1,34 @@
 using System;
+using UnityEngine;
 
 namespace Models {
 	[Serializable]
 	public class ActorSettings {
-		[Serializable]
-		public class IdleSettings {
-			public float MaxHunger;
+		public class BaseSettings {
+			[Range(0, 1)] public float Min;
+			[Range(0, 1)] public float Max;
+
+			public float Clamp(float value) => Mathf.Clamp(value, Min, Max);
 		}
 		
 		[Serializable]
-		public class GoToFoodSettings {
-			public float MinHunger;
+		public class IdleSettings : BaseSettings {
+			[Range(0, 1)] public float MaxHunger;
+		}
+		
+		[Serializable]
+		public class GoToFoodSettings : BaseSettings {
+			[Range(0, 1)] public float MinHunger;
 		}
 
 		[Serializable]
-		public class CollectFoodSettings {
-			public float MinHunger;
+		public class CollectFoodSettings : BaseSettings {
+			[Range(0, 1)] public float MinHunger;
 		}
 		
 		[Serializable]
-		public class EatFoodSettings {
-			public float MinHunger;
+		public class EatFoodSettings : BaseSettings {
+			[Range(0, 1)] public float MinHunger;
 		}
 
 		public IdleSettings Idle;

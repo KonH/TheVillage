@@ -1,4 +1,3 @@
-using UnityEngine;
 using World;
 
 namespace Actors.States {	
@@ -7,12 +6,13 @@ namespace Actors.States {
 		
 		public GoToFoodState(Actor owner) : base(owner) { }
 		
-		public override float UpdatePriority() {
+		protected override float UpdatePriority() {
 			_foodArea = Owner.Areas.GetNearestAreaWithType(AreaType.Food, Owner.transform.position);
 			if ( (_foodArea != null) && !Owner.IsInside(_foodArea) ) {
 				var hunger    = Model.Hunger;
-				var minHunger = Settings.GoToFood.MinHunger;
-				return Mathf.Clamp01((hunger - minHunger) / (1 - minHunger));
+				var settings  = Settings.GoToFood;
+				var minHunger = settings.MinHunger;
+				return settings.Clamp((hunger - minHunger) / (1 - minHunger));
 			}
 			return 0.0f;
 		}

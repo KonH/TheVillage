@@ -19,10 +19,10 @@ namespace Actors {
 		public AreaHolder Areas { get; private set; }
 		public NavMeshAgent Agent { get; private set; }
 
+		public List<ActorState> States { get; private set; }
+		public ActorState CurrentState { get; private set; }
+		
 		ULogger _logger;
-
-		ActorState _state;
-		List<ActorState> _states;
 
 		[Inject]
 		public void Init(ILog log, ActorRepository repo, AreaHolder areas) {
@@ -33,7 +33,7 @@ namespace Actors {
 
 		void Start() {
 			Agent = GetComponent<NavMeshAgent>();
-			_states = new List<ActorState> {
+			States = new List<ActorState> {
 				new IdleState(this),
 				new GoToFoodState(this),
 				new CollectFoodState(this),
@@ -66,7 +66,7 @@ namespace Actors {
 		}
 
 		void Update() {
-			if ( (_state == null) || _state.Update() ) {
+			if ( (CurrentState == null) || CurrentState.Update() ) {
 				TryChangeState();
 			}
 		}
@@ -84,20 +84,20 @@ namespace Actors {
 		
 		void TryChangeState() {
 			var betterState = GetBetterState();
-			if ( betterState != _state ) {
+			if ( betterState != CurrentState ) {
 				_logger.MessageFormat("Changing state to {0}", betterState);
 			}
-			_state?.OnExit();
-			_state = betterState;
-			_state.OnEnter();
-			Model.State = _state.GetType().Name;
+			CurrentState?.OnExit();
+			CurrentState = betterState;
+			CurrentState.OnEnter();
+			Model.State = CurrentState.Name;
 		}
 
 		ActorState GetBetterState() {
 			ActorState betterState    = null;
 			var        betterPriority = float.MinValue;
-			foreach ( var state in _states ) {
-				var priority = state.UpdatePriority();
+			foreach ( var state in States ) {
+				var priority = state.RefreshPriority();
 				if ( priority > betterPriority ) {
 					betterState    = state;
 					betterPriority = priority;
