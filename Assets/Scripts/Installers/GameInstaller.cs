@@ -1,4 +1,5 @@
 using Holders;
+using Repositories;
 using Sources;
 using UDBase.Controllers.LogSystem;
 using UDBase.Installers;
@@ -17,6 +18,8 @@ namespace Installers {
 		
 		public override void InstallBindings() {
 			AddUnityLogger(LogSettings);
+
+			Container.Bind<ActorRepository>().ToSelf().AsSingle();
 			
 			Container.BindInstance(AreaHolder);
 			

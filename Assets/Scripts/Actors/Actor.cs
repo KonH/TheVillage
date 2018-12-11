@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Actors.States;
 using Holders;
+using Models;
+using Repositories;
 using Sources;
 using UDBase.Controllers.LogSystem;
 using UnityEngine;
@@ -15,13 +17,15 @@ namespace Actors {
 		public NavMeshAgent Agent { get; private set; }
 
 		ULogger _logger;
-		
+
+		ActorModel _model;
 		ActorState _state;
 		List<ActorState> _states;
 
 		[Inject]
-		public void Init(ILog log, AreaHolder areas) {
+		public void Init(ILog log, ActorRepository repo, AreaHolder areas) {
 			_logger = log.CreateLogger(this);
+			_model = repo.State;
 			Areas = areas;
 		}
 
@@ -81,6 +85,7 @@ namespace Actors {
 			}
 			_state = betterState;
 			_state.OnEnter();
+			_model.State = _state.GetType().Name;
 		}
 
 		ActorState GetBetterState() {
