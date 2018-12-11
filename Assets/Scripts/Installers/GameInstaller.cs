@@ -19,10 +19,7 @@ namespace Installers {
 		public override void InstallBindings() {
 			AddUnityLogger(LogSettings);
 
-			Container.Bind<ActorRepository>().ToSelf().AsSingle();
-			
 			Container.BindInstance(AreaHolder);
-			
 			Container.BindFactory<FoodSourceHolder, FoodSource, FoodSource.Factory>().FromComponentInNewPrefab(FoodSourcePrefab);
 		}
 	}

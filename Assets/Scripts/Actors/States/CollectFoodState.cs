@@ -1,5 +1,6 @@
 using Holders;
 using Sources;
+using UnityEngine;
 using World;
 
 namespace Actors.States {
@@ -16,7 +17,9 @@ namespace Actors.States {
 				if ( holder ) {
 					_source = holder.GetNearest(Owner.transform.position);
 					if ( _source ) {
-						return 1.0f;
+						var hunger    = Model.Hunger;
+						var minHunger = Settings.CollectFood.MinHunger;
+						return Mathf.Clamp01((hunger - minHunger) / (1 - minHunger));
 					}
 				}
 			}

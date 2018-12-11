@@ -57,6 +57,7 @@ namespace Actors {
 		}
 		
 		void OnTriggerExit(Collider other) {
+			_logger.MessageFormat("OnTriggerExit: {0}", other.gameObject);
 			var area = other.gameObject.GetComponent<Area>();
 			if ( area ) {
 				area.Visitors.Remove(this);
@@ -72,15 +73,6 @@ namespace Actors {
 
 		public bool IsInside(Area area) => area.Visitors.Contains(this);
 
-		public void Schedule(float delay, Action callback) {
-			StartCoroutine(ScheduleRoutine(delay, callback));
-		}
-
-		IEnumerator ScheduleRoutine(float delay, Action callback) {
-			yield return new WaitForSeconds(delay);
-			callback();
-		}
-
 		public Area GetAreaInside(AreaType type) {
 			foreach ( var area in Areas.Filter(type) ) {
 				if ( area.Visitors.Contains(this) ) {
@@ -92,10 +84,10 @@ namespace Actors {
 		
 		void TryChangeState() {
 			var betterState = GetBetterState();
-			_state?.OnExit();
 			if ( betterState != _state ) {
 				_logger.MessageFormat("Changing state to {0}", betterState);
 			}
+			_state?.OnExit();
 			_state = betterState;
 			_state.OnEnter();
 			Model.State = _state.GetType().Name;

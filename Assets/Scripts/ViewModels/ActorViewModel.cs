@@ -7,8 +7,8 @@ using Zenject;
 namespace ViewModels {
 	[Binding]
 	public class ActorViewModel : BaseViewModel<ActorModel> {
-		[Binding]
-		public string State => Model.State;
+		[Binding] public string State => Model.State;
+		[Binding] public float Hunger => Model.Hunger;
 
 		[Inject]
 		public void Init(ActorRepository repo) {

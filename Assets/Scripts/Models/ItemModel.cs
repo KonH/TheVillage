@@ -5,5 +5,7 @@ namespace Models {
 		protected ItemModel(string name) {
 			Name = name;
 		}
+
+		public virtual void UseBy(ActorModel actor) { }
 	}
 }

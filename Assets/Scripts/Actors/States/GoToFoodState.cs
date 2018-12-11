@@ -9,7 +9,12 @@ namespace Actors.States {
 		
 		public override float UpdatePriority() {
 			_foodArea = Owner.Areas.GetNearestAreaWithType(AreaType.Food, Owner.transform.position);
-			return ( (_foodArea != null) && !Owner.IsInside(_foodArea) ) ? 1.0f : 0.0f;
+			if ( (_foodArea != null) && !Owner.IsInside(_foodArea) ) {
+				var hunger    = Model.Hunger;
+				var minHunger = Settings.GoToFood.MinHunger;
+				return Mathf.Clamp01((hunger - minHunger) / (1 - minHunger));
+			}
+			return 0.0f;
 		}
 
 		public override void OnEnter() {

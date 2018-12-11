@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4964404396241618}
   - component: {fileID: 114423977728013162}
   - component: {fileID: 114271538174801966}
+  - component: {fileID: 114222241705980920}
+  - component: {fileID: 114718677390845266}
   m_Layer: 0
   m_Name: GameContext
   m_TagString: Untagged
@@ -71,6 +73,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114222241705980920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220088316958226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d2ca8302214319a4cf309f7430ce58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Settings:
+    Idle:
+      MaxHunger: 0.5
+    GoToFood:
+      MinHunger: 0.25
+    CollectFood:
+      MinHunger: 0.1
 --- !u!114 &114271538174801966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _installers:
   - {fileID: 114271538174801966}
+  - {fileID: 114222241705980920}
+  - {fileID: 114718677390845266}
   _installerPrefabs: []
   _scriptableObjectInstallers: []
   _autoRun: 1
@@ -114,6 +136,19 @@ MonoBehaviour:
   _contractNames: []
   _parentContractName: 
   _parentContractNames: []
+--- !u!114 &114718677390845266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220088316958226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3885381d52fe405e8536460cd64bee08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Settings:
+    Increase: 0.05
 --- !u!114 &114745019916037898
 MonoBehaviour:
   m_ObjectHideFlags: 1
