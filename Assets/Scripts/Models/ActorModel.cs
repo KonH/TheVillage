@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
+using UnityWeld.Binding;
 
 namespace Models {
 	public class ActorModel : INotifyPropertyChanged {
@@ -13,6 +14,8 @@ namespace Models {
 			}
 		}
 
+		public ObservableList<ItemModel> Inventory { get; } = new ObservableList<ItemModel>();
+		
 		string _state;
 
 		public event PropertyChangedEventHandler PropertyChanged;
