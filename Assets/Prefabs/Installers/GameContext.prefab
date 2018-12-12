@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114271538174801966}
   - component: {fileID: 114222241705980920}
   - component: {fileID: 114718677390845266}
+  - component: {fileID: 114481838869059094}
   m_Layer: 0
   m_Name: GameContext
   m_TagString: Untagged
@@ -85,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Settings:
-    CompHungerCoeff: 0.15
+    CompHungerCoeff: 0.1
     GoToHome:
       FromCompHunger:
         serializedVersion: 2
@@ -295,6 +296,7 @@ MonoBehaviour:
   - {fileID: 114271538174801966}
   - {fileID: 114222241705980920}
   - {fileID: 114718677390845266}
+  - {fileID: 114481838869059094}
   _installerPrefabs: []
   _scriptableObjectInstallers: []
   _autoRun: 1
@@ -302,6 +304,19 @@ MonoBehaviour:
   _contractNames: []
   _parentContractName: 
   _parentContractNames: []
+--- !u!114 &114481838869059094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220088316958226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9e0fde60b54533ae1a01c1c33a0021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Settings:
+    Restore: 0.5
 --- !u!114 &114718677390845266
 MonoBehaviour:
   m_ObjectHideFlags: 1

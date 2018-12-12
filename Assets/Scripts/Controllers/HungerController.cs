@@ -8,7 +8,7 @@ namespace Controllers {
 	public class HungerController : ITickable {
 		[Serializable]
 		public class Settings {
-			public float Increase;
+			[Range(0, 1)] public float Increase;
 		}
 
 		Settings _settings;

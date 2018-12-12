@@ -51,7 +51,7 @@ namespace Actors {
 			var food = other.gameObject.GetComponent<FoodSource>();
 			if ( food ) {
 				Destroy(food.gameObject);
-				Model.Inventory.Add(new FoodItemModel(0.25f));
+				Model.Inventory.Add(food.Model);
 			}
 		}
 		
