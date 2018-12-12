@@ -11,8 +11,7 @@ namespace Actors.States {
 			if ( (_foodArea != null) && !Owner.IsInside(_foodArea) ) {
 				var hunger    = Model.CompensatedHunger;
 				var settings  = Settings.GoToFood;
-				var minHunger = settings.MinCompensatedHunger;
-				return settings.Clamp((hunger - minHunger) / (1 - minHunger));
+				return settings.FromCompHunger.Evaluate(hunger);
 			}
 			return 0.0f;
 		}

@@ -34,7 +34,7 @@ namespace Models {
 					var food = item as FoodItemModel;
 					return (food != null) ? food.Restore : 0.0f;
 				});
-				return Hunger - restore;
+				return Hunger - restore * Settings.CompHungerCoeff;
 			}
 		}
 		

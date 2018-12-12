@@ -18,8 +18,7 @@ namespace Actors.States {
 					if ( _source ) {
 						var hunger    = Model.CompensatedHunger;
 						var settings  = Settings.CollectFood;
-						var minHunger = settings.MinCompensatedHunger;
-						return settings.Clamp((hunger - minHunger) / (1 - minHunger));
+						return settings.FromCompHunger.Evaluate(hunger);
 					}
 				}
 			}

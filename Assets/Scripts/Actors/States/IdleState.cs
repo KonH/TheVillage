@@ -8,8 +8,7 @@ namespace Actors.States {
 			if ( Owner.IsInside(AreaType.Home) ) {
 				var hunger    = Model.CompensatedHunger;
 				var settings  = Settings.Idle;
-				var maxHunger = settings.MaxCompensatedHunger;
-				return settings.Clamp(1 - hunger / maxHunger);
+				return settings.FromCompHunger.Evaluate(hunger);
 			}
 			return 0.0f;
 		}

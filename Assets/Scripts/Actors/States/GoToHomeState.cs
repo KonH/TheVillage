@@ -11,8 +11,7 @@ namespace Actors.States {
 			if ( (_homeArea != null) && !Owner.IsInside(_homeArea) ) {
 				var hunger    = Model.CompensatedHunger;
 				var settings  = Settings.GoToHome;
-				var maxHunger = settings.MaxCompensatedHunger;
-				return settings.Clamp(1 - hunger / maxHunger);
+				return settings.FromCompHunger.Evaluate(hunger);
 			}
 			return 0.0f;
 		}

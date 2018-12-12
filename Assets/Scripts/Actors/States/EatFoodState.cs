@@ -18,8 +18,7 @@ namespace Actors.States {
 			 if ( _food != null ) {
 				 var hunger    = Model.Hunger;
 				 var settings  = Settings.EatFood;
-				 var minHunger = settings.MinHunger;
-				 return settings.Clamp((hunger - minHunger) / (1 - minHunger));
+				 return settings.FromHunger.Evaluate(hunger);
 			 }
 			return 0.0f;
 		}

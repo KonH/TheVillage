@@ -415,7 +415,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 391084116}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 0.99996346
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1706,8 +1706,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1942336024}
   - component: {fileID: 1942336027}
-  - component: {fileID: 1942336026}
   - component: {fileID: 1942336025}
+  - component: {fileID: 1942336026}
   m_Layer: 5
   m_Name: HungerSlider
   m_TagString: Untagged
@@ -1852,7 +1852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000074255026, y: -0.000013355514}
+  m_AnchoredPosition: {x: 0.0000074255026, y: 0.000034181994}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1948852352
