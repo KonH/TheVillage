@@ -2,7 +2,8 @@
     "name": "Scripts.Editor",
     "references": [
         "Scripts",
-        "UDBase.Scripts"
+        "UDBase.Scripts",
+        "Unity-Weld"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

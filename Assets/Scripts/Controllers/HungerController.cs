@@ -12,16 +12,19 @@ namespace Controllers {
 		}
 
 		Settings _settings;
-		ActorModel _model;
+
+		ActorRepository _actorRepo;
 		
 		public HungerController(Settings settings, ActorRepository repo) {
 			_settings = settings;
-			_model = repo.State;
+			_actorRepo = repo;
 		}
 
 
 		public void Tick() {
-			_model.Hunger += _settings.Increase * Time.deltaTime;
+			foreach ( var actor in _actorRepo.Actors ) {
+				actor.Hunger += _settings.Increase * Time.deltaTime;
+			}
 		}
 	}
 }

@@ -12,7 +12,7 @@ namespace ViewModels {
 
 		[Inject]
 		public void Init(ActorRepository repo) {
-			base.Init(repo.State);
+			base.Init(repo.Actors[0]); // temp
 		}
 	}
 }

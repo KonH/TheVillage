@@ -20,12 +20,15 @@ namespace Actors {
 		public List<ActorState> States { get; private set; }
 		public ActorState CurrentState { get; private set; }
 		
+		public ActorRepository Repo { get; private set; }
+		
 		ULogger _logger;
 
 		[Inject]
 		public void Init(ILog log, ActorRepository repo, AreaHolder areas) {
 			_logger = log.CreateLogger(this);
-			Model = repo.State;
+			Repo = repo;
+			Model = Repo.Create();
 			Areas = areas;
 		}
 

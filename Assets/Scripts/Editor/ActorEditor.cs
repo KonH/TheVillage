@@ -10,6 +10,8 @@ namespace EditorScripts {
 			if ( actor.States == null ) {
 				return;
 			}
+			EditorGUILayout.LabelField("Index: " + actor.Repo.Actors.IndexOf(actor.Model));
+			EditorGUILayout.LabelField("Items: " + actor.Model.Inventory.Count);
 			EditorGUILayout.Slider("Compensated Hunger", actor.Model.CompensatedHunger, 0.0f, 1.0f);
 			foreach ( var state in actor.States ) {
 				var stateName = state.Name;
