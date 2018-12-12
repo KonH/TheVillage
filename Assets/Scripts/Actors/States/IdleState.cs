@@ -1,16 +1,13 @@
 using World;
 
 namespace Actors.States {
-	public class IdleState : ActorState {
-		public IdleState(Actor owner) : base(owner) { }
+	public class IdleState : InsideAreaActorState {
+		public IdleState(Actor owner) : base(owner, AreaType.Home) { }
 
 		protected override float UpdatePriority() {
-			if ( Owner.IsInside(AreaType.Home) ) {
-				var hunger    = Model.CompensatedHunger;
-				var settings  = Settings.Idle;
-				return settings.FromCompHunger.Evaluate(hunger);
-			}
-			return 0.0f;
+			var hunger    = Model.CompensatedHunger;
+			var settings  = Settings.Idle;
+			return settings.FromCompHunger.Evaluate(hunger);
 		}
 
 		public override bool Update() => true;

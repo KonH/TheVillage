@@ -26,6 +26,7 @@ namespace Models {
 		
 		[Serializable]
 		public class EatFoodSettings {
+			[Range(0, 1)] public float HomeCoeff;
 			public AnimationCurve FromHunger;
 		}
 

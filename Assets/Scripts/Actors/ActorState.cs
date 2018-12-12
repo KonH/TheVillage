@@ -1,3 +1,4 @@
+using System.Linq;
 using Models;
 
 namespace Actors {
@@ -15,9 +16,8 @@ namespace Actors {
 			Settings = owner.Model.Settings;
 		}
 		
-		public float RefreshPriority() {
-			Priority = UpdatePriority();
-			return Priority;
+		public virtual float RefreshPriority() {
+			return SavePriority(UpdatePriority());
 		}
 		
 		public virtual void OnEnter() {}
@@ -26,5 +26,15 @@ namespace Actors {
 		public abstract bool Update();
 
 		protected abstract float UpdatePriority();
+
+		protected float SavePriority(float value) {
+			Priority = value;
+			return Priority;
+		}
+		
+		protected float Avg(params float[] values) {
+			var sum = values.Sum();
+			return sum / values.Length;
+		}
 	}
 }

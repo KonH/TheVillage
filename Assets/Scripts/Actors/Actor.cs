@@ -70,7 +70,7 @@ namespace Actors {
 			}
 		}
 
-		public bool IsInside(Area area) => area.Visitors.Contains(this);
+		public bool IsInside(Area area) => (area != null) && area.Visitors.Contains(this);
 
 		public bool IsInside(AreaType type) => GetAreaInside(type) != null;
 

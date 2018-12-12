@@ -13,9 +13,11 @@ namespace EditorScripts {
 			EditorGUILayout.Slider("Compensated Hunger", actor.Model.CompensatedHunger, 0.0f, 1.0f);
 			foreach ( var state in actor.States ) {
 				var stateName = state.Name;
-				if ( state == actor.CurrentState ) {
+				var isCurrentState = (state == actor.CurrentState);
+				if ( isCurrentState ) {
 					stateName = "*" + stateName;
 				}
+				state.RefreshPriority();
 				EditorGUILayout.Slider(stateName, state.Priority, 0.0f, 1.0f);
 			}
 		}
