@@ -258,6 +258,8 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+  ActorViewModelPrefab: {fileID: 114577207363492896, guid: 51dd09688d5784decb027324406219b4,
+    type: 2}
 --- !u!114 &114271538174801966
 MonoBehaviour:
   m_ObjectHideFlags: 1

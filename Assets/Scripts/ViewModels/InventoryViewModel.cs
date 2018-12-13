@@ -7,11 +7,10 @@ using Zenject;
 namespace ViewModels {
 	[Binding]
 	public class InventoryViewModel : BaseListViewModel<ItemModel, ItemViewModel> {
-		[Inject]
-		public void Init(ActorRepository repo) {
-			//Init(repo.Actors[0].Inventory); // temp
+		public void Init(ActorModel model) {
+			base.Init(model.Inventory);
 		}
-
+		
 		protected override ItemViewModel CreateView(ItemModel model) {
 			return new ItemViewModel(model);
 		}

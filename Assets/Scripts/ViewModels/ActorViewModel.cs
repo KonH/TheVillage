@@ -11,8 +11,11 @@ namespace ViewModels {
 		[Binding] public float Hunger => Model.Hunger;
 
 		[Inject]
-		public void Init(ActorRepository repo) {
-			//base.Init(repo.Actors[0]); // temp
+		public override void Init(ActorModel model) {
+			base.Init(model);
+			GetComponentInChildren<InventoryViewModel>().Init(model);
 		}
+
+		public class Factory : Factory<ActorModel, ActorViewModel> {}
 	}
 }
