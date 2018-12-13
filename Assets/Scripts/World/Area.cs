@@ -42,5 +42,19 @@ namespace World {
 			point.y = 0;
 			return point;
 		}
+
+		void OnDrawGizmos() {
+			Gizmos.color = GetGizmoColor();
+			var col = GetComponent<Collider>();
+			Gizmos.DrawCube(col.bounds.center, col.bounds.size);
+		}
+
+		Color GetGizmoColor() {
+			switch ( Type ) {
+				case AreaType.Food: return Color.green;
+				case AreaType.Home: return Color.blue;
+			}
+			return Color.magenta;
+		}
 	}
 }

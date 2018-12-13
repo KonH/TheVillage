@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Settings:
+    StartHunger: 1
     CompHungerCoeff: 0.1
     GoToHome:
       FromCompHunger:
@@ -258,8 +259,11 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+  ActorPrefab: {fileID: 114566147533710400, guid: 7134933838f48489bad33eec9ecec7f5,
+    type: 2}
   ActorViewModelPrefab: {fileID: 114577207363492896, guid: 51dd09688d5784decb027324406219b4,
     type: 2}
+  Spawner: {fileID: 0}
 --- !u!114 &114271538174801966
 MonoBehaviour:
   m_ObjectHideFlags: 1

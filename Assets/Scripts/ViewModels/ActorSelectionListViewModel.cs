@@ -1,5 +1,6 @@
 using Models;
 using Repositories;
+using Spawners;
 using UDBase.ViewModels;
 using UnityEngine;
 using UnityWeld.Binding;
@@ -11,11 +12,14 @@ namespace ViewModels {
 		public RectTransform SelectionRoot;
 		
 		ActorViewModel.Factory _factory;
+		ActorSpawner _spawner;
+		
 		ActorViewModel _lastSelection;
 		
 		[Inject]
-		public void Init(ActorRepository repo, ActorViewModel.Factory factory) {
+		public void Init(ActorRepository repo, ActorViewModel.Factory factory, ActorSpawner spawner) {
 			_factory = factory;
+			_spawner = spawner;
 			Init(repo.Actors);
 		}
 		
@@ -36,6 +40,11 @@ namespace ViewModels {
 			trans.sizeDelta = Vector2.zero;
 			
 			_lastSelection = viewModel;
+		}
+
+		[Binding]
+		public void Spawn() {
+			_spawner.Spawn();
 		}
 	}
 }

@@ -109,5 +109,7 @@ namespace Actors {
 			}
 			return betterState;
 		}
+		
+		public class Factory : Factory<Actor> {}
 	}
 }
