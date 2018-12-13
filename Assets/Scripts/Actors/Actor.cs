@@ -28,11 +28,11 @@ namespace Actors {
 		public void Init(ILog log, ActorRepository repo, AreaHolder areas) {
 			_logger = log.CreateLogger(this);
 			Repo = repo;
-			Model = Repo.Create();
 			Areas = areas;
 		}
 
 		void Start() {
+			Model = Repo.Create();
 			Agent = GetComponent<NavMeshAgent>();
 			States = new List<ActorState> {
 				new GoToHomeState(this),

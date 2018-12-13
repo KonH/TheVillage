@@ -9,6 +9,8 @@ namespace Models {
 	public class ActorModel : INotifyPropertyChanged {		
 		public ActorSettings Settings { get; }
 		
+		public ActorId Id { get; }
+		
 		public string State {
 			get { return _state; }
 			set {
@@ -41,12 +43,12 @@ namespace Models {
 		public ObservableList<ItemModel> Inventory { get; } = new ObservableList<ItemModel>();
 
 		string _state;
-
 		float _hunger;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		public ActorModel(ActorSettings settings) {
+		public ActorModel(ActorId id, ActorSettings settings) {
+			Id = id;
 			Settings = settings;
 		}
 

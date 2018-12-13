@@ -7,6 +7,7 @@ namespace Installers {
 		public ActorSettings Settings;
 		
 		public override void InstallBindings() {
+			Container.Bind<ActorIdReposilory>().ToSelf().AsSingle();
 			Container.Bind<ActorRepository>().ToSelf().AsSingle().WithArguments(Settings);
 		}
 	}
