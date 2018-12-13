@@ -50,6 +50,7 @@ namespace Models {
 		public ActorModel(ActorId id, ActorSettings settings) {
 			Id = id;
 			Settings = settings;
+			Hunger = Settings.StartHunger;
 		}
 
 		[NotifyPropertyChangedInvocator]

@@ -28,7 +28,6 @@ namespace ViewModels {
 				Destroy(_lastSelection.gameObject);
 			}
 			var viewModel = _factory.Create(model);
-			viewModel.Init(model);
 			
 			var trans = viewModel.GetComponent<RectTransform>();
 			trans.SetParent(SelectionRoot);

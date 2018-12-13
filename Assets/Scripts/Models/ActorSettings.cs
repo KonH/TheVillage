@@ -30,6 +30,7 @@ namespace Models {
 			public AnimationCurve FromHunger;
 		}
 
+		[Range(0, 1)] public float StartHunger;
 		[Range(0, 1)] public float CompHungerCoeff;
 		
 		public GoToHomeSettings GoToHome;
