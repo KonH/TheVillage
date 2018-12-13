@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Actors;
-using Holders;
 using UnityEngine;
 using Zenject;
+using Actors;
+using Holders;
 
 namespace World {
 	[RequireComponent(typeof(Collider))]
@@ -12,11 +12,11 @@ namespace World {
 		public HashSet<Actor> Visitors { get; set; } = new HashSet<Actor>();
 
 		AreaHolder _holder;
-		Collider _collider;
+		Collider   _collider;
 		
 		[Inject]
 		public void Init(AreaHolder holder) {
-			_holder = holder;
+			_holder   = holder;
 			_collider = GetComponent<Collider>();
 		}
 

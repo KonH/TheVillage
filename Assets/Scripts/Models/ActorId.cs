@@ -1,7 +1,7 @@
 namespace Models {
 	public struct ActorId {
-		public int Index { get; }
-		public string Name { get; }
+		public int    Index { get; }
+		public string Name  { get; }
 
 		public ActorId(int index) {
 			Index = index;

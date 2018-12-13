@@ -1,6 +1,6 @@
+using World;
 using Holders;
 using Sources;
-using World;
 
 namespace Actors.States {
 	public class CollectFoodState : ActorState {

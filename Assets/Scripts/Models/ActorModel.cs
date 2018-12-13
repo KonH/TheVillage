@@ -1,9 +1,9 @@
-using System.ComponentModel;
 using System.Linq;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityWeld.Binding;
+using JetBrains.Annotations;
 
 namespace Models {
 	public class ActorModel : INotifyPropertyChanged {		
@@ -43,14 +43,14 @@ namespace Models {
 		public ObservableList<ItemModel> Inventory { get; } = new ObservableList<ItemModel>();
 
 		string _state;
-		float _hunger;
+		float  _hunger;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		public ActorModel(ActorId id, ActorSettings settings) {
-			Id = id;
+			Id       = id;
 			Settings = settings;
-			Hunger = Settings.StartHunger;
+			Hunger   = Settings.StartHunger;
 		}
 
 		[NotifyPropertyChangedInvocator]

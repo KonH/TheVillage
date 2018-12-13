@@ -32,11 +32,11 @@ namespace Models {
 
 		[Range(0, 1)] public float StartHunger;
 		[Range(0, 1)] public float CompHungerCoeff;
-		
-		public GoToHomeSettings GoToHome;
-		public IdleSettings Idle;
-		public GoToFoodSettings GoToFood;
+
+		public GoToHomeSettings    GoToHome;
+		public IdleSettings        Idle;
+		public GoToFoodSettings    GoToFood;
 		public CollectFoodSettings CollectFood;
-		public EatFoodSettings EatFood;
+		public EatFoodSettings     EatFood;
 	}
 }

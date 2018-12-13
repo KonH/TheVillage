@@ -1,38 +1,38 @@
 using System.Collections.Generic;
-using Actors.States;
-using Holders;
-using Models;
-using Repositories;
-using Sources;
-using UDBase.Controllers.LogSystem;
 using UnityEngine;
 using UnityEngine.AI;
-using World;
+using UDBase.Controllers.LogSystem;
 using Zenject;
+using World;
+using Actors.States;
+using Models;
+using Holders;
+using Sources;
+using Repositories;
 
 namespace Actors {
 	[RequireComponent(typeof(NavMeshAgent))]
 	public class Actor : MonoBehaviour, ILogContext {
-		public ActorModel Model { get; private set; }
-		public AreaHolder Areas { get; private set; }
+		public ActorModel   Model { get; private set; }
+		public AreaHolder   Areas { get; private set; }
 		public NavMeshAgent Agent { get; private set; }
 
-		public List<ActorState> States { get; private set; }
-		public ActorState CurrentState { get; private set; }
-		
-		public ActorRepository Repo { get; private set; }
+		public List<ActorState> States       { get; private set; }
+		public ActorState       CurrentState { get; private set; }
 		
 		ULogger _logger;
+
+		ActorRepository _repo;
 
 		[Inject]
 		public void Init(ILog log, ActorRepository repo, AreaHolder areas) {
 			_logger = log.CreateLogger(this);
-			Repo = repo;
-			Areas = areas;
+			_repo   = repo;
+			Areas   = areas;
 		}
 
 		void Start() {
-			Model = Repo.Create();
+			Model = _repo.Create();
 			Agent = GetComponent<NavMeshAgent>();
 			States = new List<ActorState> {
 				new GoToHomeState(this),

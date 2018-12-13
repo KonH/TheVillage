@@ -1,5 +1,5 @@
-using Controllers;
 using Zenject;
+using Controllers;
 
 namespace Installers {
 	public class HungerInstaller : MonoInstaller {

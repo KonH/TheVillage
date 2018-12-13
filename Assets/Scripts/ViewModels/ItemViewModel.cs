@@ -1,5 +1,5 @@
-using Models;
 using UnityWeld.Binding;
+using Models;
 
 namespace ViewModels {
 	[Binding]

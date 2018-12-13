@@ -1,8 +1,7 @@
 using System;
-using Models;
-using Repositories;
 using UnityEngine;
 using Zenject;
+using Repositories;
 
 namespace Controllers {
 	public class HungerController : ITickable {

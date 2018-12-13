@@ -22,8 +22,8 @@ namespace Holders {
 		}
 		
 		public TItem GetNearest(Vector3 pos, Func<TItem, bool> filter = null) {
-			var instances = (filter != null) ? Filter(filter) : Instances;
-			var nearDistance = float.MaxValue;
+			var   instances    = (filter != null) ? Filter(filter) : Instances;
+			var   nearDistance = float.MaxValue;
 			TItem nearInstance = null;
 			foreach ( var instance in instances ) {
 				var distance = Vector3.Distance(pos, instance.transform.position);

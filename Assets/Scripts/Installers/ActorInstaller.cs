@@ -1,16 +1,16 @@
+using Zenject;
 using Actors;
 using Models;
-using Repositories;
 using Spawners;
 using ViewModels;
-using Zenject;
+using Repositories;
 
 namespace Installers {
 	public class ActorInstaller : MonoInstaller {
-		public ActorSettings Settings;
-		public Actor ActorPrefab;
+		public ActorSettings  Settings;
+		public Actor          ActorPrefab;
 		public ActorViewModel ActorViewModelPrefab;
-		public ActorSpawner Spawner;
+		public ActorSpawner   Spawner;
 		
 		public override void InstallBindings() {
 			Container.Bind<ActorIdReposilory>().ToSelf().AsSingle();

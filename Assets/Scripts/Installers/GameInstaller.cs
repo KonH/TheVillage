@@ -1,20 +1,13 @@
-using Holders;
-using Repositories;
-using Sources;
-using UDBase.Controllers.LogSystem;
 using UDBase.Installers;
-using UnityEngine;
+using UDBase.Controllers.LogSystem;
+using Holders;
+using Sources;
 
 namespace Installers {
 	public class GameInstaller : UDBaseSceneInstaller {
-		[Header("UDBase")]
 		public UnityLog.Settings LogSettings;
-		
-		[Header("Logics")]
-		public AreaHolder AreaHolder;
-		
-		[Header("Prefabs")]
-		public FoodSource FoodSourcePrefab;
+		public AreaHolder        AreaHolder;
+		public FoodSource        FoodSourcePrefab;
 		
 		public override void InstallBindings() {
 			AddUnityLogger(LogSettings);

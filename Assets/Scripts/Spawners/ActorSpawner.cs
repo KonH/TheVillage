@@ -1,24 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using Actors;
-using Holders;
-using Sources;
-using UDBase.Helpers;
 using UnityEngine;
-using World;
 using Zenject;
+using World;
+using Actors;
 
 namespace Spawners {
 	[RequireComponent(typeof(Area))]
 	public class ActorSpawner : MonoBehaviour {
-		Area _area;
+		Area          _area;
 		Actor.Factory _factory;
-
-		Coroutine _routine;
 
 		[Inject]
 		public void Init(Actor.Factory factory) {
-			_area = GetComponent<Area>();
+			_area    = GetComponent<Area>();
 			_factory = factory;
 		}
 

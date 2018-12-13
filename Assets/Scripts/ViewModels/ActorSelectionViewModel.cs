@@ -1,5 +1,5 @@
-using Models;
 using UnityWeld.Binding;
+using Models;
 
 namespace ViewModels {
 	[Binding]
@@ -7,11 +7,11 @@ namespace ViewModels {
 		[Binding] public string Name => _model.Id.Name;
 
 		readonly ActorSelectionListViewModel _parent;
-		readonly ActorModel _model;
+		readonly ActorModel                  _model;
 
 		public ActorSelectionViewModel(ActorSelectionListViewModel parent, ActorModel model) {
 			_parent = parent;
-			_model = model;
+			_model  = model;
 		}
 
 		[Binding]

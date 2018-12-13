@@ -6,6 +6,6 @@ namespace Models {
 			Name = name;
 		}
 
-		public virtual void UseBy(ActorModel actor) { }
+		public virtual void UseBy(ActorModel actor) {}
 	}
 }

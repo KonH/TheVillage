@@ -1,6 +1,6 @@
 using System;
-using Models;
 using UnityEngine;
+using Models;
 
 namespace Repositories {
 	public class FoodRepository {

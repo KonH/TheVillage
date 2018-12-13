@@ -1,29 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
+using UDBase.Helpers;
+using Zenject;
+using World;
 using Holders;
 using Sources;
-using UDBase.Helpers;
-using UnityEngine;
-using World;
-using Zenject;
 
 namespace Spawners {
 	[RequireComponent(typeof(Area))]
 	[RequireComponent(typeof(FoodSourceHolder))]
 	public class FoodSourceSpawner : MonoBehaviour {
 		public FloatRange Interval;
-		public float MaxInstances;
+		public float      MaxInstances;
 
-		Area _area;
-		FoodSourceHolder _holder;
+		Area               _area;
+		FoodSourceHolder   _holder;
 		FoodSource.Factory _factory;
 
 		Coroutine _routine;
 
 		[Inject]
 		public void Init(FoodSource.Factory factory) {
-			_area = GetComponent<Area>();
-			_holder = GetComponent<FoodSourceHolder>();
+			_area    = GetComponent<Area>();
+			_holder  = GetComponent<FoodSourceHolder>();
 			_factory = factory;
 		}
 

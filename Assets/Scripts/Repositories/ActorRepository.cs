@@ -1,5 +1,5 @@
-using Models;
 using UnityWeld.Binding;
+using Models;
 
 namespace Repositories {
 	public class ActorRepository {
@@ -11,7 +11,7 @@ namespace Repositories {
 
 		public ActorRepository(ActorSettings settings, ActorIdReposilory idRepo) {
 			_settings = settings;
-			_idRepo = idRepo;
+			_idRepo   = idRepo;
 		}
 
 		public ActorModel Create() {

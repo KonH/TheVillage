@@ -1,18 +1,18 @@
-using Models;
-using Repositories;
-using Spawners;
-using UDBase.ViewModels;
 using UnityEngine;
-using UnityWeld.Binding;
+using UDBase.ViewModels;
 using Zenject;
+using UnityWeld.Binding;
+using Models;
+using Spawners;
+using Repositories;
 
 namespace ViewModels {
 	[Binding]
 	public class ActorSelectionListViewModel : BaseListViewModel<ActorModel, ActorSelectionViewModel> {
 		public RectTransform SelectionRoot;
-		
+
 		ActorViewModel.Factory _factory;
-		ActorSpawner _spawner;
+		ActorSpawner           _spawner;
 		
 		ActorViewModel _lastSelection;
 		
@@ -32,16 +32,17 @@ namespace ViewModels {
 				Destroy(_lastSelection.gameObject);
 			}
 			var viewModel = _factory.Create(model);
-			
-			var trans = viewModel.GetComponent<RectTransform>();
-			trans.SetParent(SelectionRoot);
-			trans.localScale = Vector3.one;
-			trans.anchoredPosition = Vector2.zero;
-			trans.sizeDelta = Vector2.zero;
-			
+			AttachToRoot(viewModel.GetComponent<RectTransform>());
 			_lastSelection = viewModel;
 		}
 
+		void AttachToRoot(RectTransform trans) {
+			trans.SetParent(SelectionRoot);
+			trans.localScale       = Vector3.one;
+			trans.anchoredPosition = Vector2.zero;
+			trans.sizeDelta        = Vector2.zero;
+		}
+		
 		[Binding]
 		public void Spawn() {
 			_spawner.Spawn();

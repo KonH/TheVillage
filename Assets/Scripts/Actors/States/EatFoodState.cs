@@ -1,13 +1,13 @@
 using System.Linq;
-using Models;
 using UnityEngine;
 using World;
+using Models;
 
 namespace Actors.States {
 	public class EatFoodState : ActorState {
 		readonly float _eatTime;
 
-		float _timer;
+		float         _timer;
 		FoodItemModel _food;
 
 		public EatFoodState(Actor owner, float time) : base(owner) {
@@ -25,7 +25,7 @@ namespace Actors.States {
 		}
 
 		public override void OnEnter() {
-			_food = GetFoodItem();
+			_food  = GetFoodItem();
 			_timer = 0.0f;
 		}
 

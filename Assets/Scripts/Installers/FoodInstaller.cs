@@ -1,6 +1,5 @@
-using Models;
-using Repositories;
 using Zenject;
+using Repositories;
 
 namespace Installers {
 	public class FoodInstaller : MonoInstaller {

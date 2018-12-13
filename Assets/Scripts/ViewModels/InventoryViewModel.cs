@@ -1,8 +1,6 @@
-using Models;
-using Repositories;
-using UDBase.ViewModels;
 using UnityWeld.Binding;
-using Zenject;
+using UDBase.ViewModels;
+using Models;
 
 namespace ViewModels {
 	[Binding]

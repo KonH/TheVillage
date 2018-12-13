@@ -1,18 +1,19 @@
-using Holders;
-using Models;
-using Repositories;
 using UnityEngine;
 using Zenject;
+using Models;
+using Holders;
+using Repositories;
 
 namespace Sources {
 	public class FoodSource : MonoBehaviour {
 		public FoodItemModel Model { get; private set; }
+		
 		FoodSourceHolder _holder;
 		
 		[Inject]
 		public void Init(FoodSourceHolder holder, FoodRepository repo) {
 			_holder = holder;
-			Model = repo.Create();
+			Model   = repo.Create();
 		}
 
 		void OnEnable() => _holder.Register(this);
