@@ -29,13 +29,13 @@ namespace Models {
 			}
 		}
 
-		public float CompensatedHunger {
+		public float NormalizedFoodRestore {
 			get {
 				var restore = Inventory.Sum(item => {
 					var food = item as FoodItemModel;
 					return (food != null) ? food.Restore : 0.0f;
 				});
-				return Hunger - restore * Behaviour.OwnedFoodSatisfaction;
+				return Mathf.Clamp01(restore * Behaviour.OwnedFoodSatisfaction);
 			}
 		}
 		

@@ -11,7 +11,7 @@ namespace Actors {
 		}
 
 		public override float RefreshPriority() {
-			return SavePriority((GetTargetArea() != null) ? UpdatePriority() : 0.0f);
+			return SavePriority((GetTargetArea() != null) ? UpdatePriority() : -1.0f);
 		}
 		
 		public override void OnEnter() {

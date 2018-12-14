@@ -44,7 +44,9 @@ namespace World {
 		}
 
 		void OnDrawGizmos() {
-			Gizmos.color = GetGizmoColor();
+			var color = GetGizmoColor();
+			color.a = 0.5f;
+			Gizmos.color = color;
 			var col = GetComponent<Collider>();
 			Gizmos.DrawCube(col.bounds.center, col.bounds.size);
 		}

@@ -11,7 +11,7 @@ namespace Actors {
 		}
 
 		public override float RefreshPriority() {
-			return SavePriority(Owner.IsInside(Type) ? UpdatePriority() : 0.0f);
+			return SavePriority(Owner.IsInside(Type) ? UpdatePriority() : -1.0f);
 		}
 		
 		public override void OnEnter() {
@@ -21,7 +21,7 @@ namespace Actors {
 		public override void OnExit() {
 			InsideArea = null;
 		}
-		
+
 		Area GetAreaInside() {
 			return Owner.GetAreaInside(Type);
 		}

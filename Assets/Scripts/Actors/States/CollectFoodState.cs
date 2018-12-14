@@ -9,12 +9,7 @@ namespace Actors.States {
 		public CollectFoodState(Actor owner) : base(owner) { }
 		
 		protected override float UpdatePriority() {
-			if ( GetTargetSource() != null ) {
-				var hunger    = Model.CompensatedHunger;
-				var settings  = Settings.CollectFood;
-				return settings.FromCompHunger.Evaluate(hunger);
-			}
-			return 0.0f;
+			return (GetTargetSource() != null) ? Calculate(Settings.CollectFood) : Unreachable;
 		}
 		
 		public override void OnEnter() {

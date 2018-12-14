@@ -15,13 +15,7 @@ namespace Actors.States {
 		}
 		
 		protected override float UpdatePriority() {
-			 if ( GetFoodItem() != null ) {
-				 var hunger    = Model.Hunger;
-				 var settings  = Settings.EatFood;
-				 var inHome    = Owner.IsInside(AreaType.Home) ? settings.HomeCoeff : 0.0f;
-				 return Avg(settings.FromHunger.Evaluate(hunger), inHome);
-			 }
-			return 0.0f;
+			return (GetFoodItem() != null) ? Calculate(Settings.EatFood) : Unreachable;
 		}
 
 		public override void OnEnter() {

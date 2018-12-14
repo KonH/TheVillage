@@ -1,8 +1,9 @@
-using System.Linq;
 using Models;
 
 namespace Actors {
 	public abstract class ActorState {
+		protected const float Unreachable = -1.1f;
+		
 		public string Name     { get; }
 		public float  Priority { get; private set; }
 
@@ -33,9 +34,12 @@ namespace Actors {
 			return Priority;
 		}
 		
-		protected float Avg(params float[] values) {
-			var sum = values.Sum();
-			return sum / values.Length;
+		protected float Calculate(ActorSettings.StateSettings settings) {
+			var value = 0.0f;
+			value += Model.Hunger * settings.RealHunger;
+			value += Model.NormalizedFoodRestore * settings.FoodRestore;
+			value = value / 2;
+			return value;
 		}
 	}
 }
