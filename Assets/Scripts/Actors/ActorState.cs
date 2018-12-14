@@ -38,7 +38,8 @@ namespace Actors {
 			var value = 0.0f;
 			value += Model.Hunger * settings.RealHunger;
 			value += Model.NormalizedFoodRestore * settings.FoodRestore;
-			value = value / 2;
+			value += Model.Stress * settings.Stress;
+			value = value / 3;
 			return value;
 		}
 	}

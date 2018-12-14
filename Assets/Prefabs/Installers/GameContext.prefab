@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 114423977728013162}
   - component: {fileID: 114271538174801966}
   - component: {fileID: 114222241705980920}
-  - component: {fileID: 114718677390845266}
   - component: {fileID: 114481838869059094}
+  - component: {fileID: 114718677390845266}
+  - component: {fileID: 114856672364827064}
   m_Layer: 0
   m_Name: GameContext
   m_TagString: Untagged
@@ -89,27 +90,41 @@ MonoBehaviour:
     StartHunger:
       Start: 0
       End: 1
-    EatDesire:
-      Start: 0.33
+    StartStress:
+      Start: 0
       End: 1
+    EatDesire:
+      Start: 0.05
+      End: 0.1
     OwnedFoodSatisfaction:
       Start: 0.1
       End: 1
+    StressIncrease:
+      Start: 0.05
+      End: 0.1
+    StressRestore:
+      Start: 0.25
+      End: 0.5
     GoToHome:
       RealHunger: -0.75
       FoodRestore: -1
+      Stress: 1
     Idle:
       RealHunger: -0.44
       FoodRestore: -1
+      Stress: 1
     GoToFood:
       RealHunger: 0.29
       FoodRestore: -0.75
+      Stress: -0.54
     CollectFood:
       RealHunger: 0.75
       FoodRestore: -0.5
+      Stress: -0.32
     EatFood:
       RealHunger: 1
       FoodRestore: -1
+      Stress: 0.24
   ActorPrefab: {fileID: 114566147533710400, guid: 7134933838f48489bad33eec9ecec7f5,
     type: 2}
   ActorViewModelPrefab: {fileID: 114577207363492896, guid: 51dd09688d5784decb027324406219b4,
@@ -152,8 +167,9 @@ MonoBehaviour:
   _installers:
   - {fileID: 114271538174801966}
   - {fileID: 114222241705980920}
-  - {fileID: 114718677390845266}
   - {fileID: 114481838869059094}
+  - {fileID: 114718677390845266}
+  - {fileID: 114856672364827064}
   _installerPrefabs: []
   _scriptableObjectInstallers: []
   _autoRun: 1
@@ -185,8 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3885381d52fe405e8536460cd64bee08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Settings:
-    Increase: 0.025
 --- !u!114 &114745019916037898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,5 +210,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f1cc3a78ca7498a9f1f60cc0292f0b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114856672364827064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220088316958226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205f152d9d674d899daacb9f6fe09195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

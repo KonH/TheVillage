@@ -8,6 +8,7 @@ namespace ViewModels {
 	public class ActorViewModel : BaseViewModel<ActorModel> {
 		[Binding] public string State  => Model.State;
 		[Binding] public float  Hunger => Model.Hunger;
+		[Binding] public float  Stress => Model.Stress;
 
 		[Inject]
 		public override void Init(ActorModel model) {

@@ -28,6 +28,16 @@ namespace Models {
 				OnPropertyChanged();
 			}
 		}
+		
+		public float Stress {
+			get { return _stress; }
+			set {
+				var clampValue = Mathf.Clamp01(value);
+				if ( clampValue.Equals(_stress) ) return;
+				_stress = clampValue;
+				OnPropertyChanged();
+			}
+		}
 
 		public float NormalizedFoodRestore {
 			get {
@@ -43,6 +53,7 @@ namespace Models {
 
 		string _state;
 		float  _hunger;
+		float  _stress;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -50,6 +61,7 @@ namespace Models {
 			Id        = id;
 			Behaviour = behaviour;
 			Hunger    = Behaviour.StartHunger;
+			Stress    = Behaviour.StartStress;
 		}
 
 		[NotifyPropertyChangedInvocator]

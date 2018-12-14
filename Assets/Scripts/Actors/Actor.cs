@@ -79,14 +79,7 @@ namespace Actors {
 
 		public bool IsInside(AreaType type) => GetAreaInside(type) != null;
 
-		public Area GetAreaInside(AreaType type) {
-			foreach ( var area in Areas.Filter(type) ) {
-				if ( area.Visitors.Contains(this) ) {
-					return area;
-				}
-			}
-			return null;
-		}
+		public Area GetAreaInside(AreaType type) => Areas.GetAreaInside(this, type);
 		
 		void TryChangeState() {
 			var betterState = GetBetterState();

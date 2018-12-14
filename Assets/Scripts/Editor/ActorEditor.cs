@@ -18,7 +18,7 @@ namespace EditorScripts {
 			var behavior = model.Behaviour;
 			EditorGUILayout.Slider("EatDesire", behavior.EatDesire, 0.0f, 1.0f);
 			EditorGUILayout.Slider("OwnedFoodSatisfaction", behavior.OwnedFoodSatisfaction, 0.0f, 1.0f);
-			EditorGUILayout.Slider("Food Restore", model.NormalizedFoodRestore, 0.0f, 1.0f);
+			EditorGUILayout.Slider("FoodRestore", model.NormalizedFoodRestore, 0.0f, 1.0f);
 			EditorGUILayout.Separator();
 			
 			foreach ( var state in actor.States ) {
