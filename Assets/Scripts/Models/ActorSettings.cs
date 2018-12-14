@@ -7,9 +7,20 @@ namespace Models {
 	public class ActorSettings {
 		[Serializable]
 		public class StateSettings {
-			[Range(-1, 1)] public float RealHunger;
-			[Range(-1, 1)] public float FoodRestore;
-			[Range(-1, 1)] public float Stress;
+			public FloatRange RealHungerLimits;
+			
+			[Range(-1, 1)]
+			public float RealHunger;
+
+			public FloatRange FoodRestoreLimits;
+			
+			[Range(-1, 1)]
+			public float FoodRestore;
+
+			public FloatRange StressLimits;
+			
+			[Range(-1, 1)]
+			public float Stress;
 		}
 
 		[Header("Behaviour")]

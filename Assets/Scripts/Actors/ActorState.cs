@@ -1,3 +1,4 @@
+using UDBase.Helpers;
 using Models;
 
 namespace Actors {
@@ -36,11 +37,15 @@ namespace Actors {
 		
 		protected float Calculate(ActorSettings.StateSettings settings) {
 			var value = 0.0f;
-			value += Model.Hunger * settings.RealHunger;
-			value += Model.NormalizedFoodRestore * settings.FoodRestore;
-			value += Model.Stress * settings.Stress;
+			value += CalculateIfInside(Model.Hunger, settings.RealHunger, settings.RealHungerLimits);
+			value += CalculateIfInside(Model.NormalizedFoodRestore, settings.FoodRestore, settings.FoodRestoreLimits);
+			value += CalculateIfInside(Model.Stress, settings.Stress, settings.StressLimits);
 			value = value / 3;
 			return value;
+		}
+
+		float CalculateIfInside(float value, float coeff, FloatRange interval) {
+			return interval.Contains(value) ? value * coeff : 0.0f;
 		}
 	}
 }
