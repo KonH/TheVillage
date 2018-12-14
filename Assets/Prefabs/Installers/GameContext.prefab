@@ -109,63 +109,83 @@ MonoBehaviour:
       RealHungerLimits:
         Start: 0.5
         End: 1
-      RealHunger: 1
+      RealHunger: 0.5
       FoodRestoreLimits:
-        Start: 0.75
-        End: 1
-      FoodRestore: 0.5
+        Start: 0
+        End: 0
+      FoodRestore: 0
+      InverseFoodRestoreLimits:
+        Start: 0
+        End: 0
+      InverseFoodRestore: 0
       StressLimits:
         Start: 0.5
         End: 1
-      Stress: 1
+      Stress: 0.5
     Idle:
       RealHungerLimits:
         Start: 0
         End: 0
       RealHunger: 0
       FoodRestoreLimits:
-        Start: 0.5
-        End: 1
-      FoodRestore: 0.5
+        Start: 0
+        End: 0
+      FoodRestore: 0
+      InverseFoodRestoreLimits:
+        Start: 0
+        End: 0
+      InverseFoodRestore: 0
       StressLimits:
-        Start: 0.75
+        Start: 0.5
         End: 1
       Stress: 1
     GoToFood:
       RealHungerLimits:
         Start: 0
-        End: 0.5
-      RealHunger: 1
+        End: 0
+      RealHunger: 0
       FoodRestoreLimits:
-        Start: 0.5
+        Start: 0
+        End: 0
+      FoodRestore: 0
+      InverseFoodRestoreLimits:
+        Start: 0.75
         End: 1
-      FoodRestore: -0.25
+      InverseFoodRestore: 1
       StressLimits:
-        Start: 0.5
-        End: 1
-      Stress: -0.5
+        Start: 0
+        End: 0
+      Stress: 0
     CollectFood:
       RealHungerLimits:
         Start: 0
-        End: 0.5
-      RealHunger: 1
+        End: 0
+      RealHunger: 0
       FoodRestoreLimits:
-        Start: 0.5
+        Start: 0
+        End: 0
+      FoodRestore: 0
+      InverseFoodRestoreLimits:
+        Start: 0.25
         End: 1
-      FoodRestore: -0.25
+      InverseFoodRestore: 1
       StressLimits:
-        Start: 0.5
-        End: 1
-      Stress: -0.5
+        Start: 0
+        End: 0
+      Stress: 0
     EatFood:
       RealHungerLimits:
-        Start: 0.75
+        Start: 0.5
         End: 1
       RealHunger: 1
       FoodRestoreLimits:
-        Start: 0.5
-        End: 1
-      FoodRestore: 0.5
+        Start: 0
+        End: 0
+      FoodRestore: 0
+      InverseFoodRestoreLimits:
+        Start: 0
+        End: 0
+      InverseFoodRestore: 0
       StressLimits:
         Start: 0
         End: 0

@@ -39,8 +39,9 @@ namespace Actors {
 			var value = 0.0f;
 			value += CalculateIfInside(Model.Hunger, settings.RealHunger, settings.RealHungerLimits);
 			value += CalculateIfInside(Model.NormalizedFoodRestore, settings.FoodRestore, settings.FoodRestoreLimits);
+			value += CalculateIfInside(1 - Model.NormalizedFoodRestore, settings.InverseFoodRestore, settings.InverseFoodRestoreLimits);
 			value += CalculateIfInside(Model.Stress, settings.Stress, settings.StressLimits);
-			value = value / 3;
+			value = value / 4;
 			return value;
 		}
 

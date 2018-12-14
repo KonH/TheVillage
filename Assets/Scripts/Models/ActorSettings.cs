@@ -16,6 +16,11 @@ namespace Models {
 			
 			[Range(-1, 1)]
 			public float FoodRestore;
+			
+			public FloatRange InverseFoodRestoreLimits;
+			
+			[Range(-1, 1)]
+			public float InverseFoodRestore;
 
 			public FloatRange StressLimits;
 			
