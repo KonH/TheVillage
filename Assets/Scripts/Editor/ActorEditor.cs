@@ -10,9 +10,17 @@ namespace EditorScripts {
 			if ( actor.States == null ) {
 				return;
 			}
-			EditorGUILayout.LabelField("Name: " + actor.Model.Id.Name);
-			EditorGUILayout.LabelField("Items: " + actor.Model.Inventory.Count);
-			EditorGUILayout.Slider("Compensated Hunger", actor.Model.CompensatedHunger, 0.0f, 1.0f);
+			var model = actor.Model;
+			EditorGUILayout.LabelField("Name: " + model.Id.Name);
+			EditorGUILayout.LabelField("Items: " + model.Inventory.Count);
+			EditorGUILayout.Separator();
+			
+			var behavior = model.Behaviour;
+			EditorGUILayout.Slider("EatDesire", behavior.EatDesire, 0.0f, 1.0f);
+			EditorGUILayout.Slider("OwnedFoodSatisfaction", behavior.OwnedFoodSatisfaction, 0.0f, 1.0f);
+			EditorGUILayout.Slider("Compensated Hunger", model.CompensatedHunger, 0.0f, 1.0f);
+			EditorGUILayout.Separator();
+			
 			foreach ( var state in actor.States ) {
 				var stateName = state.Name;
 				var isCurrentState = (state == actor.CurrentState);

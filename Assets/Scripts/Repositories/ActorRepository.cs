@@ -5,17 +5,16 @@ namespace Repositories {
 	public class ActorRepository {
 		public ObservableList<ActorModel> Actors { get; } = new ObservableList<ActorModel>();
 
-		ActorSettings _settings;
+		ActorIdReposilory           _idRepo;
+		ActorBehaviourModel.Factory _behaviourFactory;
 
-		ActorIdReposilory _idRepo;
-
-		public ActorRepository(ActorSettings settings, ActorIdReposilory idRepo) {
-			_settings = settings;
-			_idRepo   = idRepo;
+		public ActorRepository(ActorIdReposilory idRepo, ActorBehaviourModel.Factory behaviorFactory) {
+			_idRepo           = idRepo;
+			_behaviourFactory = behaviorFactory;
 		}
 
 		public ActorModel Create() {
-			var actor = new ActorModel(_idRepo.Create(), _settings);
+			var actor = new ActorModel(_idRepo.Create(), _behaviourFactory.Create());
 			Actors.Add(actor);
 			return actor;
 		}

@@ -1,4 +1,5 @@
 using System;
+using UDBase.Helpers;
 using UnityEngine;
 
 namespace Models {
@@ -30,9 +31,12 @@ namespace Models {
 			public AnimationCurve FromHunger;
 		}
 
-		[Range(0, 1)] public float StartHunger;
-		[Range(0, 1)] public float CompHungerCoeff;
+		[Header("Behaviour")]
+		public FloatRange StartHunger;
+		public FloatRange EatDesire;
+		public FloatRange OwnedFoodSatisfaction;
 
+		[Header("States")]
 		public GoToHomeSettings    GoToHome;
 		public IdleSettings        Idle;
 		public GoToFoodSettings    GoToFood;

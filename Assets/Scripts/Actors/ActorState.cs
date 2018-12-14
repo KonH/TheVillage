@@ -14,7 +14,7 @@ namespace Actors {
 			Name     = GetType().Name;
 			Owner    = owner;
 			Model    = owner.Model;
-			Settings = owner.Model.Settings;
+			Settings = Owner.Settings;
 		}
 		
 		public virtual float RefreshPriority() {

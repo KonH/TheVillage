@@ -13,9 +13,10 @@ using Repositories;
 namespace Actors {
 	[RequireComponent(typeof(NavMeshAgent))]
 	public class Actor : MonoBehaviour, ILogContext {
-		public ActorModel   Model { get; private set; }
-		public AreaHolder   Areas { get; private set; }
-		public NavMeshAgent Agent { get; private set; }
+		public ActorModel    Model    { get; private set; }
+		public ActorSettings Settings { get; private set; }
+		public AreaHolder    Areas    { get; private set; }
+		public NavMeshAgent  Agent    { get; private set; }
 
 		public List<ActorState> States       { get; private set; }
 		public ActorState       CurrentState { get; private set; }
@@ -25,10 +26,11 @@ namespace Actors {
 		ActorRepository _repo;
 
 		[Inject]
-		public void Init(ILog log, ActorRepository repo, AreaHolder areas) {
-			_logger = log.CreateLogger(this);
-			_repo   = repo;
-			Areas   = areas;
+		public void Init(ILog log, ActorRepository repo, ActorSettings settings, AreaHolder areas) {
+			_logger  = log.CreateLogger(this);
+			_repo    = repo;
+			Settings = settings;
+			Areas    = areas;
 		}
 
 		void Start() {

@@ -6,10 +6,9 @@ using UnityWeld.Binding;
 using JetBrains.Annotations;
 
 namespace Models {
-	public class ActorModel : INotifyPropertyChanged {		
-		public ActorSettings Settings { get; }
-		
-		public ActorId Id { get; }
+	public class ActorModel : INotifyPropertyChanged {
+		public ActorId             Id        { get; }
+		public ActorBehaviourModel Behaviour { get; }
 		
 		public string State {
 			get { return _state; }
@@ -36,7 +35,7 @@ namespace Models {
 					var food = item as FoodItemModel;
 					return (food != null) ? food.Restore : 0.0f;
 				});
-				return Hunger - restore * Settings.CompHungerCoeff;
+				return Hunger - restore * Behaviour.OwnedFoodSatisfaction;
 			}
 		}
 		
@@ -47,10 +46,10 @@ namespace Models {
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		public ActorModel(ActorId id, ActorSettings settings) {
-			Id       = id;
-			Settings = settings;
-			Hunger   = Settings.StartHunger;
+		public ActorModel(ActorId id, ActorBehaviourModel behaviour) {
+			Id        = id;
+			Behaviour = behaviour;
+			Hunger    = Behaviour.StartHunger;
 		}
 
 		[NotifyPropertyChangedInvocator]

@@ -22,7 +22,7 @@ namespace Controllers {
 
 		public void Tick() {
 			foreach ( var actor in _actorRepo.Actors ) {
-				actor.Hunger += _settings.Increase * Time.deltaTime;
+				actor.Hunger += _settings.Increase * actor.Behaviour.EatDesire * Time.deltaTime;
 			}
 		}
 	}
