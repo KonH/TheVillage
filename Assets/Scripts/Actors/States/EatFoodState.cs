@@ -4,13 +4,13 @@ using World;
 using Models;
 
 namespace Actors.States {
-	public class EatFoodState : ActorState {
+	public class EatFoodState : InsideAreaActorState {
 		readonly float _eatTime;
 
 		float         _timer;
 		FoodItemModel _food;
 
-		public EatFoodState(Actor owner, float time) : base(owner) {
+		public EatFoodState(Actor owner, float time) : base(owner, AreaType.Home) {
 			_eatTime = time;
 		}
 		

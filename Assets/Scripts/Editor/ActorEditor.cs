@@ -13,12 +13,14 @@ namespace EditorScripts {
 			var model = actor.Model;
 			EditorGUILayout.LabelField("Name: " + model.Id.Name);
 			EditorGUILayout.LabelField("Items: " + model.Inventory.Count);
+			EditorGUILayout.Slider("FoodRestore", model.NormalizedFoodRestore, 0.0f, 1.0f);
+			EditorGUILayout.Slider("Hunger", model.Hunger, 0.0f, 1.0f);
+			EditorGUILayout.Slider("Stress", model.Stress, 0.0f, 1.0f);
 			EditorGUILayout.Separator();
 			
 			var behavior = model.Behaviour;
 			EditorGUILayout.Slider("EatDesire", behavior.EatDesire, 0.0f, 1.0f);
 			EditorGUILayout.Slider("OwnedFoodSatisfaction", behavior.OwnedFoodSatisfaction, 0.0f, 1.0f);
-			EditorGUILayout.Slider("FoodRestore", model.NormalizedFoodRestore, 0.0f, 1.0f);
 			EditorGUILayout.Separator();
 			
 			foreach ( var state in actor.States ) {

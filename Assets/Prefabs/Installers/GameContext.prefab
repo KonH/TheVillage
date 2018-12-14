@@ -89,42 +89,42 @@ MonoBehaviour:
   Settings:
     StartHunger:
       Start: 0
-      End: 1
+      End: 0
     StartStress:
       Start: 0
-      End: 1
+      End: 0
     EatDesire:
-      Start: 0.05
-      End: 0.1
+      Start: 0.025
+      End: 0.025
     OwnedFoodSatisfaction:
-      Start: 0.1
-      End: 1
-    StressIncrease:
-      Start: 0.05
-      End: 0.1
-    StressRestore:
       Start: 0.25
-      End: 0.5
+      End: 0.25
+    StressIncrease:
+      Start: 0.025
+      End: 0.025
+    StressRestore:
+      Start: 0.05
+      End: 0.05
     GoToHome:
-      RealHunger: -0.75
-      FoodRestore: -1
-      Stress: 1
+      RealHunger: 0.1
+      FoodRestore: 0
+      Stress: 0.5
     Idle:
-      RealHunger: -0.44
-      FoodRestore: -1
+      RealHunger: 0
+      FoodRestore: 0
       Stress: 1
     GoToFood:
-      RealHunger: 0.29
-      FoodRestore: -0.75
-      Stress: -0.54
+      RealHunger: 0.75
+      FoodRestore: -0.25
+      Stress: -0.25
     CollectFood:
       RealHunger: 0.75
-      FoodRestore: -0.5
-      Stress: -0.32
+      FoodRestore: -0.25
+      Stress: -0.25
     EatFood:
       RealHunger: 1
-      FoodRestore: -1
-      Stress: 0.24
+      FoodRestore: 0
+      Stress: 0
   ActorPrefab: {fileID: 114566147533710400, guid: 7134933838f48489bad33eec9ecec7f5,
     type: 2}
   ActorViewModelPrefab: {fileID: 114577207363492896, guid: 51dd09688d5784decb027324406219b4,

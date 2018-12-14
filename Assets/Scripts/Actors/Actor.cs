@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UDBase.Controllers.LogSystem;
 using Zenject;
 using World;
@@ -104,7 +107,17 @@ namespace Actors {
 			}
 			return betterState;
 		}
-		
+
+	#if UNITY_EDITOR
+		void OnDrawGizmos() {
+			Handles.Label(transform.position, CurrentState.Name);
+			if ( Agent.hasPath ) {
+				Gizmos.color = Color.green;
+				Gizmos.DrawLine(transform.position, Agent.destination);
+			}
+		}
+	#endif
+
 		public class Factory : Factory<Actor> {}
 	}
 }
