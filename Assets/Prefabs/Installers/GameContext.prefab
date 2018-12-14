@@ -94,17 +94,17 @@ MonoBehaviour:
       Start: 0
       End: 0
     EatDesire:
-      Start: 0.025
-      End: 0.025
+      Start: 0.018
+      End: 0.032
     OwnedFoodSatisfaction:
-      Start: 0.5
-      End: 0.5
+      Start: 0.36
+      End: 0.62
     StressIncrease:
-      Start: 0.05
-      End: 0.05
+      Start: 0.036
+      End: 0.06
     StressRestore:
-      Start: 0.025
-      End: 0.025
+      Start: 0.018
+      End: 0.03
     GoToHome:
       RealHungerLimits:
         Start: 0.5
