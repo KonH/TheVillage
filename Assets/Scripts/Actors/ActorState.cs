@@ -37,15 +37,33 @@ namespace Actors {
 		
 		protected float Calculate(ActorSettings.StateSettings settings) {
 			var value = 0.0f;
-			value += CalculateIfInside(Model.Hunger, settings.RealHunger, settings.RealHungerLimits);
-			value += CalculateIfInside(Model.NormalizedFoodRestore, settings.FoodRestore, settings.FoodRestoreLimits);
-			value += CalculateIfInside(1 - Model.NormalizedFoodRestore, settings.InverseFoodRestore, settings.InverseFoodRestoreLimits);
-			value += CalculateIfInside(Model.Stress, settings.Stress, settings.StressLimits);
-			value += CalculateIfInside(Model.NormalizedGold, settings.Gold, settings.GoldLimits);
-			value = value / 4;
+			var nodes = settings.Nodes;
+			var count = 0;
+			foreach ( var node in nodes ) {
+				var wantedParam = SelectParam(node.Parameter);
+				if ( node.Inversed ) {
+					wantedParam = (1 - wantedParam);
+				}
+				if ( (wantedParam >= node.Min) && (wantedParam <= node.Max) ) {
+					var curValue = wantedParam * node.Value;
+					value += curValue;
+					count++;
+				}
+			}
+			value = (count > 0) ? (value * settings.Base) / count : 0.0f;
 			return value;
 		}
 
+		float SelectParam(ActorSettings.Parameter param) {
+			switch ( param ) {
+				case ActorSettings.Parameter.RealHunger:  return Model.Hunger;
+				case ActorSettings.Parameter.FoodRestore: return Model.NormalizedFoodRestore;
+				case ActorSettings.Parameter.Stress:      return Model.Stress;
+				case ActorSettings.Parameter.Gold:        return Model.Gold;
+				default:                                  return 0.0f;
+			}
+		}
+		
 		float CalculateIfInside(float value, float coeff, FloatRange interval) {
 			return interval.Contains(value) ? value * coeff : 0.0f;
 		}

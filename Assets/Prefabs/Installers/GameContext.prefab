@@ -94,8 +94,8 @@ MonoBehaviour:
       Start: 0
       End: 0
     StartGold:
-      Start: 0
-      End: 50
+      Start: 25
+      End: 75
     EatDesire:
       Start: 0.018
       End: 0.032
@@ -109,134 +109,61 @@ MonoBehaviour:
       Start: 0.018
       End: 0.03
     Greedy:
-      Start: 25
-      End: 75
+      Start: 0
+      End: 50
     GoToHome:
-      RealHungerLimits:
-        Start: 0.5
-        End: 1
-      RealHunger: 0.5
-      FoodRestoreLimits:
-        Start: 0
-        End: 0
-      FoodRestore: 0
-      InverseFoodRestoreLimits:
-        Start: 0
-        End: 0
-      InverseFoodRestore: 0
-      StressLimits:
-        Start: 0.5
-        End: 1
-      Stress: 0.5
-      GoldLimits:
-        Start: 0
-        End: 0
-      Gold: 0
+      Nodes:
+      - Parameter: 0
+        Inversed: 0
+        Min: 0.5
+        Max: 1
+        Value: 1
+      - Parameter: 2
+        Inversed: 0
+        Min: 0.5
+        Max: 1
+        Value: 1
+      Base: 1
     Idle:
-      RealHungerLimits:
-        Start: 0
-        End: 0
-      RealHunger: 0
-      FoodRestoreLimits:
-        Start: 0
-        End: 0
-      FoodRestore: 0
-      InverseFoodRestoreLimits:
-        Start: 0
-        End: 0
-      InverseFoodRestore: 0
-      StressLimits:
-        Start: 0.5
-        End: 1
-      Stress: 1
-      GoldLimits:
-        Start: 0
-        End: 0
-      Gold: 0
+      Nodes:
+      - Parameter: 2
+        Inversed: 0
+        Min: 0.5
+        Max: 1
+        Value: 1
+      Base: 1
     GoToFood:
-      RealHungerLimits:
-        Start: 0
-        End: 0
-      RealHunger: 0
-      FoodRestoreLimits:
-        Start: 0
-        End: 0
-      FoodRestore: 0
-      InverseFoodRestoreLimits:
-        Start: 0.75
-        End: 1
-      InverseFoodRestore: 1
-      StressLimits:
-        Start: 0
-        End: 0
-      Stress: 0
-      GoldLimits:
-        Start: 0
-        End: 0
-      Gold: 0
+      Nodes:
+      - Parameter: 1
+        Inversed: 1
+        Min: 0.75
+        Max: 1
+        Value: 1
+      - Parameter: 2
+        Inversed: 0
+        Min: 0.5
+        Max: 1
+        Value: -1
+      Base: 1
     CollectFood:
-      RealHungerLimits:
-        Start: 0
-        End: 0
-      RealHunger: 0
-      FoodRestoreLimits:
-        Start: 0
-        End: 0
-      FoodRestore: 0
-      InverseFoodRestoreLimits:
-        Start: 0.25
-        End: 1
-      InverseFoodRestore: 1
-      StressLimits:
-        Start: 0
-        End: 0
-      Stress: 0
-      GoldLimits:
-        Start: 0
-        End: 0
-      Gold: 0
+      Nodes:
+      - Parameter: 1
+        Inversed: 1
+        Min: 0.5
+        Max: 1
+        Value: 1
+      Base: 1
     EatFood:
-      RealHungerLimits:
-        Start: 0.5
-        End: 1
-      RealHunger: 1
-      FoodRestoreLimits:
-        Start: 0
-        End: 0
-      FoodRestore: 0
-      InverseFoodRestoreLimits:
-        Start: 0
-        End: 0
-      InverseFoodRestore: 0
-      StressLimits:
-        Start: 0
-        End: 0
-      Stress: 0
-      GoldLimits:
-        Start: 0
-        End: 0
-      Gold: 0
+      Nodes:
+      - Parameter: 0
+        Inversed: 0
+        Min: 0.5
+        Max: 1
+        Value: 1
+      Base: 1
     GoToShop:
-      RealHungerLimits:
-        Start: 0
-        End: 0
-      RealHunger: 0
-      FoodRestoreLimits:
-        Start: 0.75
-        End: 1
-      FoodRestore: 0.5
-      InverseFoodRestoreLimits:
-        Start: 0.75
-        End: 1
-      InverseFoodRestore: 0.5
-      StressLimits:
-        Start: 0
-        End: 0
-      Stress: 0
-      GoldLimits:
-        Start: 0
-        End: 0
-      Gold: 0
+      Nodes: []
+      Base: 1
   ActorPrefab: {fileID: 114566147533710400, guid: 7134933838f48489bad33eec9ecec7f5,
     type: 2}
   ActorViewModelPrefab: {fileID: 114577207363492896, guid: 51dd09688d5784decb027324406219b4,

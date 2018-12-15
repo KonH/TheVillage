@@ -1,36 +1,39 @@
 using System;
+using System.Collections.Generic;
 using UDBase.Helpers;
 using UnityEngine;
 
 namespace Models {
 	[Serializable]
 	public class ActorSettings {
+		public enum Parameter {
+			RealHunger,
+			FoodRestore,
+			Stress,
+			Gold,
+		}
+
+		[Serializable]
+		public class StateSettingsNode {
+			public Parameter Parameter;
+			public bool Inversed;
+			
+			[Range(0, 1)]
+			public float Min;
+			
+			[Range(0, 1)]
+			public float Max;
+			
+			[Range(-1, 1)]
+			public float Value;
+		}
+		
 		[Serializable]
 		public class StateSettings {
-			public FloatRange RealHungerLimits;
+			public List<StateSettingsNode> Nodes;
 			
-			[Range(-1, 1)]
-			public float RealHunger;
-
-			public FloatRange FoodRestoreLimits;
-			
-			[Range(-1, 1)]
-			public float FoodRestore;
-			
-			public FloatRange InverseFoodRestoreLimits;
-			
-			[Range(-1, 1)]
-			public float InverseFoodRestore;
-
-			public FloatRange StressLimits;
-			
-			[Range(-1, 1)]
-			public float Stress;
-
-			public FloatRange GoldLimits;
-
-			[Range(-1, 1)]
-			public float Gold;
+			[Range(0, 1)]
+			public float Base;
 		}
 
 		[Header("Behaviour")]
