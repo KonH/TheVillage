@@ -123,7 +123,7 @@ MonoBehaviour:
         Min: 0.5
         Max: 1
         Value: 1
-      Base: 1
+      Base: 0.75
     Idle:
       Nodes:
       - Parameter: 2
@@ -161,16 +161,19 @@ MonoBehaviour:
         Max: 1
         Value: 1
       Base: 1
-    GoToShop:
+    GoToShopSell:
       Nodes:
       - Parameter: 1
         Inversed: 0
-        Min: 0
-        Max: 0.25
+        Min: 0.65
+        Max: 1
         Value: 1
+      Base: 1
+    GoToShopBuy:
+      Nodes:
       - Parameter: 1
-        Inversed: 0
-        Min: 0.75
+        Inversed: 1
+        Min: 0.65
         Max: 1
         Value: 1
       Base: 1
@@ -178,7 +181,15 @@ MonoBehaviour:
       Nodes:
       - Parameter: 1
         Inversed: 0
-        Min: 0.75
+        Min: 0.65
+        Max: 1
+        Value: 1
+      Base: 1
+    BuyFood:
+      Nodes:
+      - Parameter: 1
+        Inversed: 1
+        Min: 0.65
         Max: 1
         Value: 1
       Base: 1
@@ -206,6 +217,9 @@ MonoBehaviour:
     Nodes:
     - Context:
         classRef: Actors.Actor, Scripts
+      Enabled: 0
+    - Context:
+        classRef: Holders.ItemHolder, Scripts
       Enabled: 1
   AreaHolder: {fileID: 114745019916037898}
   FoodSourcePrefab: {fileID: 114396964546046992, guid: 02d5098b2bd9b4319bc6a093fc487afb,

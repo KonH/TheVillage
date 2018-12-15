@@ -16,7 +16,7 @@ namespace Actors {
 		
 		public override void OnEnter() {
 			TargetArea = GetTargetArea();
-			Owner.Agent.destination = TargetArea.transform.position;
+			Owner.Agent.destination = TargetArea.GetRandomPointOnPlane();
 		}
 
 		public override void OnExit() {
@@ -28,7 +28,7 @@ namespace Actors {
 			return Owner.IsInside(TargetArea);
 		}
 		
-		Area GetTargetArea() {
+		protected Area GetTargetArea() {
 			var area = Owner.Areas.GetNearestAreaWithType(Type, Owner.transform.position);
 			return !Owner.IsInside(area) ? area : null;
 		}

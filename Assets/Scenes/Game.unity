@@ -138,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 50429802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 12}
+  m_LocalPosition: {x: -12, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1743622821}
@@ -659,7 +659,7 @@ MonoBehaviour:
   Interval:
     Start: 1
     End: 2.5
-  MaxInstances: 5
+  MaxInstances: 20
 --- !u!114 &510698174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,7 +682,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 5, z: 20}
+  m_Size: {x: 60, y: 5, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &510698176
 MonoBehaviour:
@@ -1430,8 +1430,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 610900301}
   m_HandleRect: {fileID: 610900300}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.99999994
+  m_Value: 0
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1778,7 +1778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000074255026, y: -0.000033851094}
+  m_AnchoredPosition: {x: 0.0000074255026, y: -0.000014997225}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1999070906
