@@ -26,15 +26,22 @@ namespace Models {
 			
 			[Range(-1, 1)]
 			public float Stress;
+
+			public FloatRange GoldLimits;
+
+			[Range(-1, 1)]
+			public float Gold;
 		}
 
 		[Header("Behaviour")]
 		public FloatRange StartHunger;
 		public FloatRange StartStress;
+		public IntRange   StartGold;
 		public FloatRange EatDesire;
 		public FloatRange OwnedFoodSatisfaction;
 		public FloatRange StressIncrease;
 		public FloatRange StressRestore;
+		public IntRange   Greedy;
 
 		[Header("States")]
 		public StateSettings GoToHome;
@@ -42,5 +49,6 @@ namespace Models {
 		public StateSettings GoToFood;
 		public StateSettings CollectFood;
 		public StateSettings EatFood;
+		public StateSettings GoToShop;
 	}
 }

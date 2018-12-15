@@ -49,11 +49,23 @@ namespace Models {
 			}
 		}
 		
+		public int Gold {
+			get { return _gold; }
+			set {
+				if ( value == _gold ) return;
+				_gold = value;
+				OnPropertyChanged();
+			}
+		}
+		
+		public float NormalizedGold => (float)Gold / Behaviour.Greedy;
+
 		public ObservableList<ItemModel> Inventory { get; } = new ObservableList<ItemModel>();
 
 		string _state;
 		float  _hunger;
 		float  _stress;
+		int    _gold;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -62,6 +74,7 @@ namespace Models {
 			Behaviour = behaviour;
 			Hunger    = Behaviour.StartHunger;
 			Stress    = Behaviour.StartStress;
+			Gold      = Behaviour.StartGold;
 		}
 
 		[NotifyPropertyChangedInvocator]

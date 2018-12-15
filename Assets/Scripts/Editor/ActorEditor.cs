@@ -19,6 +19,7 @@ namespace EditorScripts {
 			EditorGUILayout.Separator();
 			
 			var behavior = model.Behaviour;
+			EditorGUILayout.LabelField("Greedy: " + behavior.Greedy);
 			EditorGUILayout.Slider("EatDesire", behavior.EatDesire, 0.0f, 1.0f);
 			EditorGUILayout.Slider("OwnedFoodSatisfaction", behavior.OwnedFoodSatisfaction, 0.0f, 1.0f);
 			EditorGUILayout.Separator();

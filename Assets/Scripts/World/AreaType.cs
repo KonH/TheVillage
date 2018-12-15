@@ -3,5 +3,6 @@ namespace World {
 		Unknown,
 		Food,
 		Home,
+		Shop,
 	}
 }

@@ -44,7 +44,8 @@ namespace Actors {
 				new IdleState(this),
 				new GoToFoodState(this),
 				new CollectFoodState(this),
-				new EatFoodState(this, 1.5f)
+				new EatFoodState(this, 1.5f),
+				new GoToShopState(this),
 			};
 		}
 

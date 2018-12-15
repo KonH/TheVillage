@@ -9,6 +9,7 @@ namespace ViewModels {
 		[Binding] public string State  => Model.State;
 		[Binding] public float  Hunger => Model.Hunger;
 		[Binding] public float  Stress => Model.Stress;
+		[Binding] public int    Gold   => Model.Gold;
 
 		[Inject]
 		public override void Init(ActorModel model) {

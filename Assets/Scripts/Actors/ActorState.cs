@@ -41,6 +41,7 @@ namespace Actors {
 			value += CalculateIfInside(Model.NormalizedFoodRestore, settings.FoodRestore, settings.FoodRestoreLimits);
 			value += CalculateIfInside(1 - Model.NormalizedFoodRestore, settings.InverseFoodRestore, settings.InverseFoodRestoreLimits);
 			value += CalculateIfInside(Model.Stress, settings.Stress, settings.StressLimits);
+			value += CalculateIfInside(Model.NormalizedGold, settings.Gold, settings.GoldLimits);
 			value = value / 4;
 			return value;
 		}
