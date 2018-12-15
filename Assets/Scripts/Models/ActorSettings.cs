@@ -52,6 +52,9 @@ namespace Models {
 		public StateSettings GoToFood;
 		public StateSettings CollectFood;
 		public StateSettings EatFood;
-		public StateSettings GoToShop;
+		public StateSettings GoToShopSell;
+		public StateSettings GoToShopBuy;
+		public StateSettings SellFood;
+		public StateSettings BuyFood;
 	}
 }

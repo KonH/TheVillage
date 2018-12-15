@@ -162,7 +162,25 @@ MonoBehaviour:
         Value: 1
       Base: 1
     GoToShop:
-      Nodes: []
+      Nodes:
+      - Parameter: 1
+        Inversed: 0
+        Min: 0
+        Max: 0.25
+        Value: 1
+      - Parameter: 1
+        Inversed: 0
+        Min: 0.75
+        Max: 1
+        Value: 1
+      Base: 1
+    SellFood:
+      Nodes:
+      - Parameter: 1
+        Inversed: 0
+        Min: 0.75
+        Max: 1
+        Value: 1
       Base: 1
   ActorPrefab: {fileID: 114566147533710400, guid: 7134933838f48489bad33eec9ecec7f5,
     type: 2}

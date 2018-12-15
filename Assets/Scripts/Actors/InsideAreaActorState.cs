@@ -22,7 +22,7 @@ namespace Actors {
 			InsideArea = null;
 		}
 
-		Area GetAreaInside() {
+		protected Area GetAreaInside() {
 			return Owner.GetAreaInside(Type);
 		}
 	}

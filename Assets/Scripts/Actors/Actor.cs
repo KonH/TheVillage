@@ -45,7 +45,10 @@ namespace Actors {
 				new GoToFoodState(this),
 				new CollectFoodState(this),
 				new EatFoodState(this, 1.5f),
-				new GoToShopState(this),
+				new GoToShopSellState(this),
+				new GoToShopBuyState(this),
+				new SellFoodState(this, 0.5f),
+				new BuyFoodState(this, 0.5f),
 			};
 		}
 
