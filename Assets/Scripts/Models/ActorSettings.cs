@@ -56,5 +56,7 @@ namespace Models {
 		public StateSettings GoToShopBuy;
 		public StateSettings SellFood;
 		public StateSettings BuyFood;
+		public StateSettings GoToBar;
+		public StateSettings StayInBar;
 	}
 }

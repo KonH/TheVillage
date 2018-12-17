@@ -49,18 +49,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _installers:
+  _scriptableObjectInstallers: []
+  _monoInstallers:
   - {fileID: 114271538174801966}
   - {fileID: 114222241705980920}
   - {fileID: 114481838869059094}
   - {fileID: 114718677390845266}
   - {fileID: 114856672364827064}
   _installerPrefabs: []
-  _scriptableObjectInstallers: []
   _autoRun: 1
-  _parentNewObjectsUnderRoot: 0
+  _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
-  _parentContractName: 
   _parentContractNames: []
 --- !u!114 &114271538174801966
 MonoBehaviour:
@@ -89,9 +88,11 @@ MonoBehaviour:
   AreaSettings:
     Settings:
     - Type: 2
-      StressChange: 1
-    - Type: 1
       StressChange: -1
+    - Type: 1
+      StressChange: 1
+    - Type: 4
+      StressChange: -3
   AreaHolder: {fileID: 114745019916037898}
   FoodSourcePrefab: {fileID: 114396964546046992, guid: 02d5098b2bd9b4319bc6a093fc487afb,
     type: 3}
@@ -110,10 +111,10 @@ MonoBehaviour:
   Settings:
     StartHunger:
       Start: 0
-      End: 0
+      End: 1
     StartStress:
       Start: 0
-      End: 0
+      End: 1
     StartGold:
       Start: 25
       End: 75
@@ -152,7 +153,7 @@ MonoBehaviour:
         Min: 0.5
         Max: 1
         Value: 1
-      Base: 1
+      Base: 0.8
     GoToFood:
       Nodes:
       - Parameter: 1
@@ -214,6 +215,22 @@ MonoBehaviour:
         Max: 1
         Value: 1
       Base: 1
+    GoToBar:
+      Nodes:
+      - Parameter: 2
+        Inversed: 0
+        Min: 0.5
+        Max: 1
+        Value: 1
+      Base: 1
+    StayInBar:
+      Nodes:
+      - Parameter: 2
+        Inversed: 0
+        Min: 0.5
+        Max: 1
+        Value: 1
+      Base: 0.9
   ActorPrefab: {fileID: 114566147533710400, guid: 7134933838f48489bad33eec9ecec7f5,
     type: 3}
   ActorViewModelPrefab: {fileID: 114577207363492896, guid: 51dd09688d5784decb027324406219b4,

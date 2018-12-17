@@ -49,6 +49,8 @@ namespace Actors {
 				new GoToShopBuyState(this),
 				new SellFoodState(this, 0.5f),
 				new BuyFoodState(this, 0.5f),
+				new GoToBarState(this),
+				new StayInBarState(this),
 			};
 		}
 

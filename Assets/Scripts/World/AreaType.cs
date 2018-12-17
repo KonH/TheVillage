@@ -4,5 +4,6 @@ namespace World {
 		Food,
 		Home,
 		Shop,
+		Bar,
 	}
 }

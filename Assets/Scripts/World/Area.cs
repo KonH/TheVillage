@@ -68,6 +68,8 @@ namespace World {
 			switch ( Type ) {
 				case AreaType.Food: return Color.green;
 				case AreaType.Home: return Color.blue;
+				case AreaType.Shop: return Color.yellow;
+				case AreaType.Bar : return Color.cyan;
 			}
 			return Color.magenta;
 		}
