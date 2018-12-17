@@ -33,5 +33,17 @@ namespace Holders {
 			}
 			return null;
 		}
+		
+		public List<Area> GetAreasInside(ActorId id) {
+			var result = new List<Area>();
+			foreach ( var area in Instances ) {
+				foreach ( var visitor in area.Visitors ) {
+					if ( visitor.Model.Id.Index == id.Index ) {
+						result.Add(area);
+					}
+				}
+			}
+			return result;
+		}
 	}
 }

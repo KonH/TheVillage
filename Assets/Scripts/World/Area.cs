@@ -11,11 +11,24 @@ namespace World {
 		
 		public HashSet<Actor> Visitors { get; set; } = new HashSet<Actor>();
 
-		AreaHolder _holder;
-		Collider   _collider;
+		public float StressChange {
+			get {
+				foreach ( var setting in _settings.Settings ) {
+					if ( Type == setting.Type ) {
+						return setting.StressChange;
+					}
+				}
+				return 0.0f;
+			}
+		}
+
+		AreaSettings _settings;
+		AreaHolder   _holder;
+		Collider     _collider;
 		
 		[Inject]
-		public void Init(AreaHolder holder) {
+		public void Init(AreaSettings settings, AreaHolder holder) {
+			_settings = settings;
 			_holder   = holder;
 			_collider = GetComponent<Collider>();
 		}
