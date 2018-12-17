@@ -122,6 +122,6 @@ namespace Actors {
 		}
 	#endif
 
-		public class Factory : Factory<Actor> {}
+		public class Factory : PlaceholderFactory<Actor> {}
 	}
 }

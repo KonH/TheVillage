@@ -19,6 +19,6 @@ namespace Sources {
 		void OnEnable() => _holder.Register(this);
 		void OnDisable() => _holder.Unregister(this);
 
-		public class Factory : Factory<FoodSourceHolder, FoodSource> {}
+		public class Factory : PlaceholderFactory<FoodSourceHolder, FoodSource> {}
 	}
 }

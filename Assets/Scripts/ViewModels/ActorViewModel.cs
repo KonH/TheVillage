@@ -17,6 +17,6 @@ namespace ViewModels {
 			GetComponentInChildren<InventoryViewModel>().Init(model);
 		}
 
-		public class Factory : Factory<ActorModel, ActorViewModel> {}
+		public class Factory : PlaceholderFactory<ActorModel, ActorViewModel> {}
 	}
 }

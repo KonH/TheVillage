@@ -22,6 +22,6 @@ namespace Models {
 			Greedy                = settings.Greedy.Random();
 		}
 		
-		public class Factory : Factory<ActorBehaviourModel> {}
+		public class Factory : PlaceholderFactory<ActorBehaviourModel> {}
 	}
 }
