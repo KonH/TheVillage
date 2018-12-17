@@ -19,11 +19,11 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
             [Range(0f, 1f)] public float windMasterVolume = 0.5f;   // An overall control of the wind sound volume.
         }
 
-        [SerializeField] private AudioClip m_EngineSound;                     // Looped engine sound, whose pitch and volume are affected by the plane's throttle setting.
+        [SerializeField] private AudioClip m_EngineSound = null;              // Looped engine sound, whose pitch and volume are affected by the plane's throttle setting.
         [SerializeField] private float m_EngineMinThrottlePitch = 0.4f;       // Pitch of the engine sound when at minimum throttle.
         [SerializeField] private float m_EngineMaxThrottlePitch = 2f;         // Pitch of the engine sound when at maximum throttle.
         [SerializeField] private float m_EngineFwdSpeedMultiplier = 0.002f;   // Additional multiplier for an increase in pitch of the engine from the plane's speed.
-        [SerializeField] private AudioClip m_WindSound;                       // Looped wind sound, whose pitch and volume are affected by the plane's velocity.
+        [SerializeField] private AudioClip m_WindSound = null;                // Looped wind sound, whose pitch and volume are affected by the plane's velocity.
         [SerializeField] private float m_WindBasePitch = 0.2f;                // starting pitch for wind (when plane is at zero speed)
         [SerializeField] private float m_WindSpeedPitchFactor = 0.004f;       // Relative increase in pitch of the wind from the plane's speed.
         [SerializeField] private float m_WindMaxSpeedVolume = 100;            // the speed the aircraft much reach before the wind sound reaches maximum volume.
